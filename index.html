@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Venta, reparación y mantenimiento de ordenadores en Rivas-Vaciamadrid. Diagnóstico gratuito y garantía incluida.">
+<title>KanetTech | Tecnología que funciona</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: #0d0d0f; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 3rem;
+  background: rgba(13,13,15,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.logo-icon {
+  width: 34px; height: 34px; background: linear-gradient(135deg, #7c3aed, #6366f1);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.75rem; color: #fff;
+}
+.logo-text { font-size: 1rem; font-weight: 700; color: #fff; }
+.logo-text span { color: #a78bfa; }
+nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+nav ul a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+nav ul a:hover { color: #fff; }
+.btn-wa {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: #fff; padding: 0.5rem 1.25rem; border-radius: 8px;
+  font-weight: 600; font-size: 0.85rem; text-decoration: none;
+  transition: opacity 0.2s;
+}
+.btn-wa:hover { opacity: 0.85; color: #fff; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 8rem 2rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% 40%, rgba(124,58,237,0.2) 0%, transparent 70%),
+              linear-gradient(to bottom, rgba(13,13,15,0.7) 0%, rgba(13,13,15,0.5) 50%, rgba(13,13,15,0.85) 100%);
+  pointer-events: none;
+}
+.hero-bg2 {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&q=80') center/cover no-repeat;
+  opacity: 0.1; pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.7);
+  margin-bottom: 1.5rem;
+}
+.hero-badge::before { content: '●'; color: #22c55e; font-size: 0.5rem; }
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
+  line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 1.25rem;
+}
+.hero h1 .gradient {
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero p {
+  font-size: 1.1rem; color: rgba(255,255,255,0.6); max-width: 560px;
+  line-height: 1.7; margin-bottom: 2.5rem;
+}
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: #fff; padding: 0.875rem 2rem; border-radius: 10px;
+  font-weight: 600; font-size: 0.95rem; text-decoration: none;
+  display: flex; align-items: center; gap: 0.5rem;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-outline {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+  color: #fff; padding: 0.875rem 2rem; border-radius: 10px;
+  font-weight: 600; font-size: 0.95rem; text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+.hero-tags { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.hero-tag {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5rem 1.1rem; border-radius: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.95);
+  font-weight: 500;
+}
+
+/* NOSOTROS */
+.nosotros { padding: 6rem 3rem; max-width: 1200px; margin: 0 auto; }
+.section-badge {
+  display: inline-block; background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3);
+  color: #a78bfa; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.75rem;
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem;
+}
+.section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 3rem; text-align: center; }
+.section-title .gradient { background: linear-gradient(135deg, #a78bfa, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.nosotros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
+.nosotros-img {
+  border-radius: 16px; overflow: hidden; aspect-ratio: 4/3;
+  background: url('https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80') center/cover;
+}
+.nosotros-text p { color: rgba(255,255,255,0.65); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1.25rem; }
+.nosotros-text p strong { color: #fff; }
+.pills { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.pill {
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.8);
+}
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.stat-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 1.5rem; text-align: center;
+  transition: border-color 0.3s;
+}
+.stat-card:hover { border-color: rgba(124,58,237,0.4); }
+.stat-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.stat-num { font-size: 2rem; font-weight: 800; display: block; margin-bottom: 0.25rem; }
+.stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+/* SERVICIOS */
+.servicios { padding: 6rem 3rem; background: rgba(255,255,255,0.02); }
+.servicios-inner { max-width: 1200px; margin: 0 auto; }
+.servicios-subtitle { text-align: center; color: rgba(255,255,255,0.55); font-size: 0.95rem; max-width: 500px; margin: 0 auto 3rem; }
+.servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; }
+.service-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 2rem;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.service-card:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-2px); }
+.service-icon-wrap {
+  width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center;
+  justify-content: center; font-size: 1.4rem; margin-bottom: 1.25rem;
+}
+.icon-blue { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+.icon-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+.icon-pink { background: linear-gradient(135deg, #ec4899, #f472b6); }
+.service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; }
+.service-card p { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 1rem; }
+.service-card ul { list-style: none; }
+.service-card ul li {
+  font-size: 0.8rem; color: rgba(255,255,255,0.55); padding: 0.2rem 0;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.service-card ul li::before { content: '●'; color: #a78bfa; font-size: 0.4rem; }
+.img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.img-card {
+  position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 16/7;
+  cursor: pointer;
+}
+.img-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: filter 0.3s; }
+.img-card:hover img { filter: brightness(0.8); }
+.img-card-text {
+  position: absolute; bottom: 1.25rem; left: 1.25rem;
+}
+.img-card-text h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+.img-card-text p { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+
+/* CONTACTO */
+.contacto { padding: 6rem 3rem; max-width: 1200px; margin: 0 auto; }
+.contacto-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2rem; align-items: start; }
+.contact-cards { display: flex; flex-direction: column; gap: 1rem; }
+.contact-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 1.25rem 1.5rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+}
+.contact-card-icon {
+  width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center;
+  justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+}
+.c-green { background: rgba(34,197,94,0.15); }
+.c-blue { background: rgba(59,130,246,0.15); }
+.c-purple { background: rgba(124,58,237,0.15); }
+.contact-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+.contact-card p { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+.contact-card a { font-size: 0.8rem; color: #a78bfa; text-decoration: none; }
+.contact-card a:hover { text-decoration: underline; }
+.form-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 2rem;
+}
+.form-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 0.4rem; }
+.form-group input, .form-group textarea {
+  width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 0.75rem 1rem; color: #fff; font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; outline: none; transition: border-color 0.2s;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+.form-group input:focus, .form-group textarea:focus { border-color: rgba(124,58,237,0.5); }
+.form-group textarea { height: 120px; resize: vertical; }
+.btn-submit {
+  width: 100%; background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: #fff; border: none; padding: 0.875rem; border-radius: 10px;
+  font-size: 0.95rem; font-weight: 600; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  transition: opacity 0.2s;
+}
+.btn-submit:hover { opacity: 0.9; }
+
+/* MAP */
+.map-wrap { max-width: 1200px; margin: 0 auto 4rem; padding: 0 3rem; }
+.map-frame {
+  border-radius: 16px; overflow: hidden; height: 300px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.map-frame iframe { width: 100%; height: 100%; border: none; filter: invert(0.9) hue-rotate(180deg); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+footer p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+footer p span { color: #a78bfa; }
+
+/* CHATBOT */
+.chat-btn {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  border: none; cursor: pointer; font-size: 1.3rem;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+  transition: transform 0.2s;
+}
+.chat-btn:hover { transform: scale(1.08); }
+.chat-bubble {
+  position: fixed; bottom: 5.5rem; right: 1.5rem; z-index: 200;
+  width: 320px; background: #1a1a2e;
+  border: 1px solid rgba(124,58,237,0.3); border-radius: 16px;
+  overflow: hidden; display: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.chat-bubble.open { display: block; }
+.chat-header {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem;
+}
+.chat-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+.chat-header-text h4 { font-size: 0.9rem; font-weight: 600; }
+.chat-header-text p { font-size: 0.75rem; opacity: 0.8; }
+.chat-messages { padding: 1rem; height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem; }
+.chat-msg {
+  background: rgba(255,255,255,0.06); border-radius: 12px 12px 12px 2px;
+  padding: 0.6rem 0.875rem; font-size: 0.82rem; color: rgba(255,255,255,0.85); max-width: 90%; line-height: 1.5;
+}
+.chat-input-area { padding: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; gap: 0.5rem; }
+.chat-input {
+  flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 0.5rem 0.75rem; color: #fff; font-size: 0.82rem;
+  font-family: 'Inter', sans-serif; outline: none;
+}
+.chat-send {
+  background: linear-gradient(135deg, #7c3aed, #6366f1); border: none;
+  border-radius: 8px; width: 34px; height: 34px; cursor: pointer; font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  nav ul { display: none; }
+  .hero h1 { font-size: 2.5rem; }
+  .nosotros, .servicios, .contacto { padding: 4rem 1.25rem; }
+  .nosotros-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .servicios-grid { grid-template-columns: 1fr; }
+  .img-grid { grid-template-columns: 1fr; }
+  .contacto-grid { grid-template-columns: 1fr; }
+  .map-wrap { padding: 0 1.25rem; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon">KT</div>
+    <span class="logo-text">Kanet<span>Tech</span></span>
+  </a>
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="https://wa.me/34614062503" target="_blank" class="btn-wa">WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-bg2"></div>
+  <div style="position:relative;z-index:1">
+    <div class="hero-badge">Servicio técnico profesional en Rivas Vaciamadrid</div>
+    <h1>Tecnología que<br><span class="gradient">funciona</span></h1>
+    <p>Venta, reparación y mantenimiento de ordenadores. Soluciones profesionales con atención personalizada, diagnóstico gratuito y garantía incluida.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/34614062503" target="_blank" class="btn-primary">Contactar por WhatsApp →</a>
+      <a href="#servicios" class="btn-outline">Ver Servicios</a>
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag">🔧 Venta de Ordenadores</span>
+      <span class="hero-tag">🖥️ Reparación Profesional</span>
+      <span class="hero-tag">⚡ Mantenimiento Preventivo</span>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="nosotros" id="nosotros">
+  <div style="text-align:center">
+    <div class="section-badge">Sobre Nosotros</div>
+    <h2 class="section-title">Tu partner tecnológico<br><span class="gradient">de confianza</span></h2>
+  </div>
+  <div class="nosotros-grid">
+    <div class="nosotros-img"></div>
+    <div class="nosotros-text">
+      <p>En <strong>Kanet Technologies</strong>, somos especialistas en venta, reparación y mantenimiento de ordenadores. Ofrecemos equipos nuevos y reacondicionados, y solucionamos cualquier avería de hardware o software.</p>
+      <p>Ubicados en Rivas Vaciamadrid, nos diferenciamos por nuestro trato cercano, transparencia en precios y compromiso con la calidad. Diagnóstico gratuito, presupuesto sin compromiso y garantía en todas nuestras reparaciones.</p>
+      <div class="pills">
+        <span class="pill">Diagnóstico gratuito</span>
+        <span class="pill">Presupuesto sin compromiso</span>
+        <span class="pill">Garantía incluida</span>
+      </div>
+    </div>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-icon">👥</div><span class="stat-num">500+</span><span class="stat-label">Clientes Satisfechos</span></div>
+    <div class="stat-card"><div class="stat-icon">🕐</div><span class="stat-num">5+</span><span class="stat-label">Años de Experiencia</span></div>
+    <div class="stat-card"><div class="stat-icon">👍</div><span class="stat-num">98%</span><span class="stat-label">Tasa de Satisfacción</span></div>
+    <div class="stat-card"><div class="stat-icon">📍</div><span class="stat-num">1</span><span class="stat-label">Sede en Rivas</span></div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="servicios" id="servicios">
+  <div class="servicios-inner">
+    <div style="text-align:center">
+      <div class="section-badge">Servicios</div>
+      <h2 class="section-title">Todo lo que necesitas<br><span class="gradient">para tu ordenador</span></h2>
+      <p class="servicios-subtitle">Venta, reparación y mantenimiento de ordenadores. Soluciones profesionales con atención personalizada y garantía incluida.</p>
+    </div>
+    <div class="servicios-grid">
+      <div class="service-card">
+        <div class="service-icon-wrap icon-blue">🛒</div>
+        <h3>Venta de Ordenadores</h3>
+        <p>Equipos nuevos y reacondicionados adaptados a tus necesidades. Portátiles, sobremesa, componentes y periféricos con la mejor relación calidad-precio.</p>
+        <ul>
+          <li>Portátiles y sobremesa</li>
+          <li>Componentes y periféricos</li>
+          <li>Asesoramiento personalizado</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap icon-purple">🖥️</div>
+        <h3>Reparación de Ordenadores</h3>
+        <p>Diagnóstico y reparación de todo tipo de averías en portátiles y sobremesa. Pantallas, placas base, discos duros, software y más.</p>
+        <ul>
+          <li>Diagnóstico gratuito</li>
+          <li>Reparación de hardware y software</li>
+          <li>Recuperación de datos</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap icon-pink">🛡️</div>
+        <h3>Mantenimiento de Ordenadores</h3>
+        <p>Limpieza, optimización y actualización de tu equipo para mantenerlo funcionando como el primer día. Planes de mantenimiento preventivo.</p>
+        <ul>
+          <li>Limpieza y optimización</li>
+          <li>Actualización de componentes</li>
+          <li>Mantenimiento preventivo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="img-grid">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Componentes de calidad">
+        <div class="img-card-text">
+          <h3>Componentes de Calidad</h3>
+          <p>Solo trabajamos con las mejores marcas</p>
+        </div>
+      </div>
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Servicio profesional">
+        <div class="img-card-text">
+          <h3>Servicio Profesional</h3>
+          <p>Diagnóstico gratuito y garantía incluida</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+  <div style="text-align:center">
+    <div class="section-badge">Contacto</div>
+    <h2 class="section-title">¿Necesitas ayuda?<br><span class="gradient">Hablemos</span></h2>
+    <p style="color:rgba(255,255,255,0.55);margin-bottom:3rem">Cuéntanos tu problema y te daremos una solución rápida y profesional.<br>Presupuesto sin compromiso.</p>
+  </div>
+  <div class="contacto-grid">
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-card-icon c-green">💬</div>
+        <div>
+          <h4>WhatsApp</h4>
+          <a href="https://wa.me/34614062503" target="_blank">Respuesta inmediata →</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon c-blue">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <p>info@kanettech.com</p>
+          <a href="mailto:info@kanettech.com">Envíanos un correo →</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon c-purple">📍</div>
+        <div>
+          <h4>Ubicación</h4>
+          <p>Calle Vicente Aranda 2<br>28521, Rivas Vaciamadrid</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-card">
+      <h3>Envíanos un mensaje</h3>
+      <div class="form-group">
+        <label>Nombre *</label>
+        <input type="text" placeholder="Tu nombre">
+      </div>
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" placeholder="tu@email.com">
+      </div>
+      <div class="form-group">
+        <label>Mensaje *</label>
+        <textarea placeholder="Describe tu problema o consulta..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="sendWhatsApp()">Enviar Mensaje ✉️</button>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-wrap">
+  <div class="map-frame">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.5!2d-3.5369!3d40.3555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd41879b7b6b6b6b%3A0x0!2sCalle+Vicente+Aranda+2%2C+Rivas-Vaciamadrid!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <span>Kanet Technologies</span> — Rivas-Vaciamadrid, Madrid</p>
+  <p>Servicio técnico informático profesional</p>
+</footer>
+
+<!-- CHATBOT -->
+<button class="chat-btn" onclick="toggleChat()">💬</button>
+<div class="chat-bubble" id="chatBubble">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div class="chat-header-text">
+      <h4>Asistente Kanet</h4>
+      <p>En línea</p>
+    </div>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg">¡Hola! 👋 Soy el asistente de Kanet Technologies. ¿En qué puedo ayudarte hoy?</div>
+    <div class="chat-msg">Puedo orientarte sobre reparaciones, precios o cómo contactarnos por WhatsApp.</div>
+  </div>
+  <div class="chat-input-area">
+    <input class="chat-input" id="chatInput" placeholder="Escribe tu consulta..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script>
+function toggleChat() {
+  document.getElementById('chatBubble').classList.toggle('open');
+}
+
+const WA = 'https://wa.me/34614062503';
+
+const responses = [
+  { keys: ['hola','buenas','buenos','hey','saludos'], reply: '¡Hola! 👋 Bienvenido a Kanet Technologies. Puedo ayudarte con servicios, precios, tiempos o ubicación. ¿Qué necesitas?' },
+  { keys: ['servicio','servicios','que hac','que ofrecen','ofreceis'], reply: '🛠️ Nuestros servicios:<br><br>• <b>Venta</b> de ordenadores nuevos y reacondicionados<br>• <b>Reparación</b> de hardware y software<br>• <b>Mantenimiento preventivo</b> y limpieza<br>• <b>Recuperación de datos</b><br>• <b>Soporte remoto</b><br>• <b>Servicio a domicilio</b> en Rivas y alrededores<br><br>¿Sobre cuál quieres más info?' },
+  { keys: ['precio','precios','cuanto','cuánto','cuesta','cobran','tarifa','presupuesto'], reply: '💰 Precios orientativos:<br><br>• Diagnóstico: <b>GRATIS</b> ✅<br>• Limpieza y optimización: desde <b>25€</b><br>• Pasta térmica: <b>20€</b><br>• Formateo + SO: desde <b>40€</b><br>• Cambio de pantalla: desde <b>60€</b><br>• Disco duro/SSD: desde <b>50€</b> + componente<br>• Batería: desde <b>45€</b><br>• Recuperación datos: desde <b>60€</b><br><br>📌 Presupuesto sin compromiso antes de empezar.' },
+  { keys: ['reparacion','reparación','reparar','averia','avería','no arranca','no enciende','pantalla','no funciona','roto'], reply: '🔧 Reparamos portátiles y sobremesa:<br><br>• Pantallas rotas<br>• Placas base<br>• Discos duros y SSD<br>• Teclados y puertos<br>• Software y virus<br>• Recuperación de datos<br><br>Diagnóstico <b>gratuito</b> y presupuesto antes de empezar. ¿Qué problema tienes?' },
+  { keys: ['domicilio','casa','desplazamiento','vienen','venís','venid'], reply: '🏠 Sí, ofrecemos <b>servicio a domicilio</b> en Rivas-Vaciamadrid y alrededores. Contáctanos por <a href="' + WA + '" target="_blank" style="color:#a78bfa">WhatsApp</a> para coordinar la visita.' },
+  { keys: ['remoto','remotamente','online','desde casa','sin salir'], reply: '💻 Sí, tenemos <b>soporte remoto</b> para problemas de software, virus, configuraciones y más — sin salir de casa.<br><br>Precio: desde <b>20€/sesión</b>. Contáctanos y te conectamos en minutos.' },
+  { keys: ['tiempo','cuanto tarda','tarda','plazo','rapido','rápido'], reply: '⏱️ Tiempos estimados:<br><br>• Diagnóstico: mismo día<br>• Limpieza/formateo: 24-48h<br>• Cambio de componentes: 24-72h<br>• Reparaciones complejas: 3-5 días<br><br>Te avisamos cuando esté listo 📱' },
+  { keys: ['donde','ubicacion','ubicación','direccion','dirección','dónde','local','tienda'], reply: '📍 Estamos en:<br><br><b>Calle Vicente Aranda 2<br>28521, Rivas-Vaciamadrid, Madrid</b><br><br>También hacemos servicio a domicilio y soporte remoto.' },
+  { keys: ['horario','hora','abierto','cuando abren','cuando estan'], reply: '🕐 Horario:<br><br>• Lunes a Viernes: <b>9:00 - 19:00</b><br>• Sábados: <b>10:00 - 14:00</b><br><br>Por WhatsApp puedes escribirnos cuando quieras.' },
+  { keys: ['venta','comprar','ordenador','portatil','portátil','sobremesa','reacondicionado'], reply: '🖥️ Vendemos equipos nuevos y reacondicionados:<br><br>• Portátiles reacondicionados: desde <b>150€</b><br>• Sobremesa reacondicionados: desde <b>120€</b><br>• Portátiles nuevos: desde <b>350€</b><br><br>Todos con garantía ✅' },
+  { keys: ['garantia','garantía'], reply: '✅ Todas las reparaciones incluyen <b>garantía de 3 meses</b> en mano de obra. Los componentes nuevos tienen garantía del fabricante (1-2 años).' },
+  { keys: ['virus','malware','lento','va lento','lentitud'], reply: '🦠 Solucionamos problemas de virus y rendimiento:<br><br>• Eliminación de virus: desde <b>35€</b><br>• Limpieza y optimización: desde <b>25€</b><br>• Formateo completo: desde <b>40€</b><br><br>Diagnóstico gratuito 🔍' },
+  { keys: ['datos','recuperar','archivos','perdidos','backup'], reply: '💾 Recuperación de datos:<br><br>• Diagnóstico: <b>GRATIS</b><br>• Recuperación básica: desde <b>60€</b><br>• Recuperación avanzada: desde <b>100€</b><br><br>⚠️ <b>No cobramos si no recuperamos tus datos.</b>' },
+  { keys: ['contacto','contactar','whatsapp','telefono','teléfono','email','correo'], reply: '📞 Contáctanos:<br><br>• <a href="' + WA + '" target="_blank" style="color:#a78bfa">WhatsApp: 614 062 503</a> (respuesta inmediata)<br>• Email: info@kanettech.com<br>• Presencial: Calle Vicente Aranda 2, Rivas-Vaciamadrid' },
+  { keys: ['gracias','muchas gracias','ok','perfecto','genial','vale'], reply: '😊 ¡De nada! Si tienes más preguntas aquí estamos. También puedes escribirnos por <a href="' + WA + '" target="_blank" style="color:#a78bfa">WhatsApp</a> para respuesta inmediata.' }
+];
+
+function getReply(msg) {
+  const lower = msg.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  for (const r of responses) {
+    if (r.keys.some(k => lower.includes(k))) return r.reply;
+  }
+  return `No tengo esa info concreta, pero puedo ayudarte por <a href="${WA}?text=${encodeURIComponent(msg)}" target="_blank" style="color:#a78bfa">WhatsApp</a> ahora mismo. ¡Respondemos enseguida! 💬`;
+}
+
+function addMsg(html, isUser = false) {
+  const messages = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg';
+  if (isUser) div.style.cssText = 'background:rgba(124,58,237,0.2);align-self:flex-end;border-radius:12px 12px 2px 12px';
+  div.innerHTML = html;
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function sendChat() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  addMsg(msg, true);
+  input.value = '';
+  setTimeout(() => addMsg(getReply(msg)), 500);
+}
+
+function sendWhatsApp() {
+  const name = document.querySelector('input[type=text]').value;
+  const msg = document.querySelector('textarea').value;
+  if (!msg) { alert('Por favor escribe tu mensaje'); return; }
+  const text = encodeURIComponent(`Hola, soy ${name || 'un cliente'}. ${msg}`);
+  window.open(`https://wa.me/34614062503?text=${text}`, '_blank');
+}
+</script>
+</body>
+</html>
