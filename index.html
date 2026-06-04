@@ -3,553 +3,780 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Venta, reparación y mantenimiento de ordenadores en Rivas-Vaciamadrid. Diagnóstico gratuito y garantía incluida.">
-<title>KanetTech | Tecnología que funciona</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="KanetTech — Diseño web, chatbots, automatización e IA para PYMEs. 100% remoto, servicio en español e inglés.">
+<title>KanetTech · Web · Automation · AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { background: #0d0d0f; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+  :root{
+    --bg:#07080F;
+    --bg-1:#0C0E1A;
+    --bg-2:#13162A;
+    --bg-3:#1A1E36;
+    --border:rgba(255,255,255,.06);
+    --border-2:rgba(255,255,255,.12);
+    --text:#F4F6FA;
+    --text-2:#A6ACBC;
+    --text-3:#6B7184;
+    --accent:#4F8EFF;
+    --accent-2:#36D4E5;
+    --accent-3:#6BE6A4;
+    --amber:#FFB347;
+    --rad:14px;
+    --rad-sm:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Onest',sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  /* grano sutil global */
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.025;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+  h1,h2,h3,h4{font-family:'Onest',sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+  .serif-it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+  .mono{font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.5px}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 3rem;
-  background: rgba(13,13,15,0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-.logo-icon {
-  width: 34px; height: 34px; background: linear-gradient(135deg, #7c3aed, #6366f1);
-  border-radius: 8px; display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 0.75rem; color: #fff;
-}
-.logo-text { font-size: 1rem; font-weight: 700; color: #fff; }
-.logo-text span { color: #a78bfa; }
-nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
-nav ul a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-nav ul a:hover { color: #fff; }
-.btn-wa {
-  background: linear-gradient(135deg, #7c3aed, #6366f1);
-  color: #fff; padding: 0.5rem 1.25rem; border-radius: 8px;
-  font-weight: 600; font-size: 0.85rem; text-decoration: none;
-  transition: opacity 0.2s;
-}
-.btn-wa:hover { opacity: 0.85; color: #fff; }
+  /* gradient text */
+  .gtext{background:linear-gradient(110deg,#7CB9FF 0%,#36D4E5 50%,#6BE6A4 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 8rem 2rem 4rem;
-  position: relative; overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 50% at 50% 40%, rgba(124,58,237,0.2) 0%, transparent 70%),
-              linear-gradient(to bottom, rgba(13,13,15,0.7) 0%, rgba(13,13,15,0.5) 50%, rgba(13,13,15,0.85) 100%);
-  pointer-events: none;
-}
-.hero-bg2 {
-  position: absolute; inset: 0;
-  background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&q=80') center/cover no-repeat;
-  opacity: 0.1; pointer-events: none;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-  padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.7);
-  margin-bottom: 1.5rem;
-}
-.hero-badge::before { content: '●'; color: #22c55e; font-size: 0.5rem; }
-.hero h1 {
-  font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
-  line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 1.25rem;
-}
-.hero h1 .gradient {
-  background: linear-gradient(135deg, #a78bfa, #60a5fa);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero p {
-  font-size: 1.1rem; color: rgba(255,255,255,0.6); max-width: 560px;
-  line-height: 1.7; margin-bottom: 2.5rem;
-}
-.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
-.btn-primary {
-  background: linear-gradient(135deg, #7c3aed, #6366f1);
-  color: #fff; padding: 0.875rem 2rem; border-radius: 10px;
-  font-weight: 600; font-size: 0.95rem; text-decoration: none;
-  display: flex; align-items: center; gap: 0.5rem;
-  transition: opacity 0.2s, transform 0.2s;
-}
-.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-.btn-outline {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
-  color: #fff; padding: 0.875rem 2rem; border-radius: 10px;
-  font-weight: 600; font-size: 0.95rem; text-decoration: none;
-  transition: background 0.2s;
-}
-.btn-outline:hover { background: rgba(255,255,255,0.1); }
-.hero-tags { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.hero-tag {
-  display: flex; align-items: center; gap: 0.4rem;
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);
-  padding: 0.5rem 1.1rem; border-radius: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.95);
-  font-weight: 500;
-}
+  /* ---------- TOP BAR ---------- */
+  .topbar{background:var(--bg-1);border-bottom:1px solid var(--border);padding:8px 6vw;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--text-2);position:relative;z-index:60}
+  .topbar .left{display:flex;align-items:center;gap:8px}
+  .topbar .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent-3);box-shadow:0 0 0 0 rgba(107,230,164,.6);animation:p 2s infinite}
+  @keyframes p{70%{box-shadow:0 0 0 8px rgba(107,230,164,0)}100%{box-shadow:0 0 0 0 rgba(107,230,164,0)}}
+  .lang-toggle{display:flex;gap:0;background:var(--bg-2);border:1px solid var(--border);border-radius:20px;padding:2px}
+  .lang-toggle button{background:none;border:none;color:var(--text-2);padding:4px 10px;font-size:.72rem;letter-spacing:1px;cursor:pointer;font-family:'JetBrains Mono';border-radius:18px;transition:.2s}
+  .lang-toggle button.active{background:var(--text);color:var(--bg)}
 
-/* NOSOTROS */
-.nosotros { padding: 6rem 3rem; max-width: 1200px; margin: 0 auto; }
-.section-badge {
-  display: inline-block; background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3);
-  color: #a78bfa; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.75rem;
-  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem;
-}
-.section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 3rem; text-align: center; }
-.section-title .gradient { background: linear-gradient(135deg, #a78bfa, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.nosotros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
-.nosotros-img {
-  border-radius: 16px; overflow: hidden; aspect-ratio: 4/3;
-  background: url('https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80') center/cover;
-}
-.nosotros-text p { color: rgba(255,255,255,0.65); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1.25rem; }
-.nosotros-text p strong { color: #fff; }
-.pills { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
-.pill {
-  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-  padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.8);
-}
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.stat-card {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px; padding: 1.5rem; text-align: center;
-  transition: border-color 0.3s;
-}
-.stat-card:hover { border-color: rgba(124,58,237,0.4); }
-.stat-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-.stat-num { font-size: 2rem; font-weight: 800; display: block; margin-bottom: 0.25rem; }
-.stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+  /* ---------- NAV ---------- */
+  nav.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(7,8,15,.78);border-bottom:1px solid var(--border);padding:14px 6vw;display:flex;justify-content:space-between;align-items:center}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+  .logo .mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#4F8EFF,#36D4E5 55%,#6BE6A4);position:relative;overflow:hidden}
+  .logo .mark::after{content:'';position:absolute;inset:6px;background:var(--bg);border-radius:4px}
+  .logo .mark::before{content:'K';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--text);font-family:'JetBrains Mono';font-weight:600;font-size:.95rem;z-index:2}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--text-2);font-size:.92rem;font-weight:400;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{background:var(--text);color:var(--bg)!important;padding:9px 18px;border-radius:10px;font-weight:500;font-size:.88rem;transition:.2s}
+  .nav-cta:hover{background:#fff;transform:translateY(-1px)}
+  .burger{display:none;background:none;border:none;flex-direction:column;gap:5px;cursor:pointer}
+  .burger span{width:24px;height:2px;background:var(--text)}
 
-/* SERVICIOS */
-.servicios { padding: 6rem 3rem; background: rgba(255,255,255,0.02); }
-.servicios-inner { max-width: 1200px; margin: 0 auto; }
-.servicios-subtitle { text-align: center; color: rgba(255,255,255,0.55); font-size: 0.95rem; max-width: 500px; margin: 0 auto 3rem; }
-.servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; }
-.service-card {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px; padding: 2rem;
-  transition: border-color 0.3s, transform 0.2s;
-}
-.service-card:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-2px); }
-.service-icon-wrap {
-  width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center;
-  justify-content: center; font-size: 1.4rem; margin-bottom: 1.25rem;
-}
-.icon-blue { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
-.icon-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
-.icon-pink { background: linear-gradient(135deg, #ec4899, #f472b6); }
-.service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; }
-.service-card p { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 1rem; }
-.service-card ul { list-style: none; }
-.service-card ul li {
-  font-size: 0.8rem; color: rgba(255,255,255,0.55); padding: 0.2rem 0;
-  display: flex; align-items: center; gap: 0.4rem;
-}
-.service-card ul li::before { content: '●'; color: #a78bfa; font-size: 0.4rem; }
-.img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-.img-card {
-  position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 16/7;
-  cursor: pointer;
-}
-.img-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: filter 0.3s; }
-.img-card:hover img { filter: brightness(0.8); }
-.img-card-text {
-  position: absolute; bottom: 1.25rem; left: 1.25rem;
-}
-.img-card-text h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
-.img-card-text p { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:90px 6vw 110px;overflow:hidden;text-align:center}
+  .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;pointer-events:none;animation:floaty 18s ease-in-out infinite}
+  .orb.a{width:520px;height:520px;background:#4F8EFF;top:-180px;left:-160px}
+  .orb.b{width:460px;height:460px;background:#36D4E5;top:-100px;right:-140px;animation-delay:-6s;opacity:.4}
+  .orb.c{width:380px;height:380px;background:#6BE6A4;bottom:-180px;left:35%;animation-delay:-12s;opacity:.32}
+  @keyframes floaty{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.08)}}
+  .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(circle at 50% 30%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(circle at 50% 30%,black 0%,transparent 70%);pointer-events:none}
+  .hero-inner{position:relative;z-index:2;max-width:880px;margin:0 auto}
+  .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--border-2);border-radius:24px;background:rgba(255,255,255,.03);color:var(--text-2);font-size:.78rem;margin-bottom:30px}
+  .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-3)}
+  .hero h1{font-size:clamp(2.6rem,6.8vw,5.2rem);font-weight:600;line-height:1.04;letter-spacing:-.03em}
+  .hero h1 .serif-it{font-weight:400}
+  .hero p.lead{color:var(--text-2);font-size:clamp(1.05rem,1.4vw,1.2rem);max-width:600px;margin:24px auto 0;font-weight:300}
+  .hero-ctas{display:flex;gap:12px;justify-content:center;margin-top:38px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:11px;font-weight:500;font-size:.93rem;border:1px solid transparent;cursor:pointer;transition:.2s;font-family:inherit}
+  .btn-primary{background:var(--text);color:var(--bg)}
+  .btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 16px 40px rgba(79,142,255,.2)}
+  .btn-ghost{background:rgba(255,255,255,.04);border-color:var(--border-2);color:var(--text)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22)}
+  .hero-meta{margin-top:50px;display:flex;justify-content:center;gap:36px;flex-wrap:wrap;color:var(--text-3);font-size:.82rem}
+  .hero-meta .item{display:flex;align-items:center;gap:8px}
+  .hero-meta .item svg{width:14px;height:14px;color:var(--accent-3)}
 
-/* CONTACTO */
-.contacto { padding: 6rem 3rem; max-width: 1200px; margin: 0 auto; }
-.contacto-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2rem; align-items: start; }
-.contact-cards { display: flex; flex-direction: column; gap: 1rem; }
-.contact-card {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px; padding: 1.25rem 1.5rem;
-  display: flex; align-items: flex-start; gap: 1rem;
-}
-.contact-card-icon {
-  width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center;
-  justify-content: center; font-size: 1.1rem; flex-shrink: 0;
-}
-.c-green { background: rgba(34,197,94,0.15); }
-.c-blue { background: rgba(59,130,246,0.15); }
-.c-purple { background: rgba(124,58,237,0.15); }
-.contact-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
-.contact-card p { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
-.contact-card a { font-size: 0.8rem; color: #a78bfa; text-decoration: none; }
-.contact-card a:hover { text-decoration: underline; }
-.form-card {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px; padding: 2rem;
-}
-.form-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; }
-.form-group { margin-bottom: 1rem; }
-.form-group label { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 0.4rem; }
-.form-group input, .form-group textarea {
-  width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px; padding: 0.75rem 1rem; color: #fff; font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; outline: none; transition: border-color 0.2s;
-}
-.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
-.form-group input:focus, .form-group textarea:focus { border-color: rgba(124,58,237,0.5); }
-.form-group textarea { height: 120px; resize: vertical; }
-.btn-submit {
-  width: 100%; background: linear-gradient(135deg, #7c3aed, #6366f1);
-  color: #fff; border: none; padding: 0.875rem; border-radius: 10px;
-  font-size: 0.95rem; font-weight: 600; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-  transition: opacity 0.2s;
-}
-.btn-submit:hover { opacity: 0.9; }
+  /* ---------- TRUST ---------- */
+  .trust{padding:46px 6vw;border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;background:var(--bg-1)}
+  .trust .label{color:var(--text-3);font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:20px}
+  .trust .row{display:flex;justify-content:center;gap:54px;flex-wrap:wrap;align-items:center}
+  .trust .row .brand-name{font-family:'Instrument Serif';font-style:italic;font-size:1.7rem;color:var(--text-2);transition:color .2s}
+  .trust .row .brand-name:hover{color:var(--text)}
+  .trust .row .ft{font-family:'Onest';font-weight:700;letter-spacing:-.02em}
+  .trust .row .sep{color:var(--text-3);opacity:.4}
 
-/* MAP */
-.map-wrap { max-width: 1200px; margin: 0 auto 4rem; padding: 0 3rem; }
-.map-frame {
-  border-radius: 16px; overflow: hidden; height: 300px;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-.map-frame iframe { width: 100%; height: 100%; border: none; filter: invert(0.9) hue-rotate(180deg); }
+  /* ---------- SECTION ---------- */
+  section{padding:110px 6vw;position:relative}
+  .sec-head{max-width:740px;margin:0 auto 64px;text-align:center}
+  .sec-head .kicker{display:inline-block;color:var(--accent-2);font-family:'JetBrains Mono';font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px}
+  .sec-head h2{font-size:clamp(2rem,4.2vw,3.2rem);line-height:1.08;letter-spacing:-.03em}
+  .sec-head p{color:var(--text-2);font-size:1.05rem;margin-top:18px;font-weight:300}
 
-/* FOOTER */
-footer {
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 2rem 3rem;
-  display: flex; justify-content: space-between; align-items: center;
-}
-footer p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
-footer p span { color: #a78bfa; }
+  /* ---------- SERVICES BENTO ---------- */
+  .services{position:relative}
+  .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;max-width:1180px;margin:0 auto}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--border);border-radius:18px;padding:28px 26px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+  .card:hover{transform:translateY(-4px);border-color:var(--border-2)}
+  .card .ico{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,rgba(79,142,255,.18),rgba(54,212,229,.1));display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--accent-2)}
+  .card .ico svg{width:22px;height:22px}
+  .card h3{font-size:1.15rem;margin-bottom:8px;font-weight:500}
+  .card p{color:var(--text-2);font-size:.93rem;font-weight:300}
+  .card .num{position:absolute;top:18px;right:22px;font-family:'JetBrains Mono';font-size:.7rem;color:var(--text-3);letter-spacing:1px}
+  .card.c1{grid-column:span 3}
+  .card.c2{grid-column:span 3}
+  .card.c3{grid-column:span 2}
+  .card.c4{grid-column:span 2}
+  .card.c5{grid-column:span 2}
+  .card.c6{grid-column:span 6;display:flex;align-items:center;gap:30px;background:linear-gradient(120deg,rgba(79,142,255,.07),rgba(107,230,164,.03))}
+  .card.c6 .ico{margin-bottom:0;flex-shrink:0;width:54px;height:54px}
+  .card.c6 .ico svg{width:26px;height:26px}
+  .card.c6 .ct{flex:1}
+  .card.c6 h3{font-size:1.4rem;margin-bottom:6px}
 
-/* CHATBOT */
-.chat-btn {
-  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
-  width: 52px; height: 52px; border-radius: 50%;
-  background: linear-gradient(135deg, #7c3aed, #6366f1);
-  border: none; cursor: pointer; font-size: 1.3rem;
-  box-shadow: 0 4px 20px rgba(124,58,237,0.4);
-  transition: transform 0.2s;
-}
-.chat-btn:hover { transform: scale(1.08); }
-.chat-bubble {
-  position: fixed; bottom: 5.5rem; right: 1.5rem; z-index: 200;
-  width: 320px; background: #1a1a2e;
-  border: 1px solid rgba(124,58,237,0.3); border-radius: 16px;
-  overflow: hidden; display: none;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-}
-.chat-bubble.open { display: block; }
-.chat-header {
-  background: linear-gradient(135deg, #7c3aed, #6366f1);
-  padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem;
-}
-.chat-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-.chat-header-text h4 { font-size: 0.9rem; font-weight: 600; }
-.chat-header-text p { font-size: 0.75rem; opacity: 0.8; }
-.chat-messages { padding: 1rem; height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem; }
-.chat-msg {
-  background: rgba(255,255,255,0.06); border-radius: 12px 12px 12px 2px;
-  padding: 0.6rem 0.875rem; font-size: 0.82rem; color: rgba(255,255,255,0.85); max-width: 90%; line-height: 1.5;
-}
-.chat-input-area { padding: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; gap: 0.5rem; }
-.chat-input {
-  flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px; padding: 0.5rem 0.75rem; color: #fff; font-size: 0.82rem;
-  font-family: 'Inter', sans-serif; outline: none;
-}
-.chat-send {
-  background: linear-gradient(135deg, #7c3aed, #6366f1); border: none;
-  border-radius: 8px; width: 34px; height: 34px; cursor: pointer; font-size: 0.9rem;
-}
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio{background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:30px;max-width:1180px;margin:0 auto}
+  .case{background:var(--bg-2);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s}
+  .case:hover{transform:translateY(-6px);border-color:var(--border-2)}
+  .browser{background:#0a0c14;padding:9px 14px 0;border-bottom:1px solid var(--border)}
+  .browser .dots{display:flex;gap:6px;margin-bottom:9px}
+  .browser .dots span{width:10px;height:10px;border-radius:50%}
+  .browser .dots span:nth-child(1){background:#FF5F57}
+  .browser .dots span:nth-child(2){background:#FEBC2E}
+  .browser .dots span:nth-child(3){background:#28C840}
+  .browser .url{font-family:'JetBrains Mono';font-size:.72rem;color:var(--text-3);background:var(--bg);padding:5px 12px;border-radius:6px;display:inline-block}
+  .case .shot{aspect-ratio:16/10;overflow:hidden;background:#000}
+  .case .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s}
+  .case:hover .shot img{transform:scale(1.03)}
+  .case .ct{padding:24px 26px 26px}
+  .case .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .case .tag{font-family:'JetBrains Mono';font-size:.7rem;color:var(--accent-2);background:rgba(54,212,229,.08);padding:3px 9px;border-radius:5px;letter-spacing:.5px;text-transform:uppercase}
+  .case h3{font-size:1.4rem;margin-bottom:8px}
+  .case p{color:var(--text-2);font-size:.95rem;margin-bottom:14px;font-weight:300}
+  .case a.lk{font-family:'JetBrains Mono';font-size:.78rem;color:var(--accent-3);letter-spacing:.5px;border-bottom:1px solid transparent;padding-bottom:2px;transition:.2s}
+  .case a.lk:hover{border-color:var(--accent-3)}
 
-@media (max-width: 768px) {
-  nav { padding: 1rem 1.25rem; }
-  nav ul { display: none; }
-  .hero h1 { font-size: 2.5rem; }
-  .nosotros, .servicios, .contacto { padding: 4rem 1.25rem; }
-  .nosotros-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .servicios-grid { grid-template-columns: 1fr; }
-  .img-grid { grid-template-columns: 1fr; }
-  .contacto-grid { grid-template-columns: 1fr; }
-  .map-wrap { padding: 0 1.25rem; }
-  footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
-}
+  /* ---------- PROCESS ---------- */
+  .proc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:1180px;margin:0 auto;position:relative}
+  .step{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.005));border:1px solid var(--border);border-radius:16px;padding:30px 26px;position:relative}
+  .step .n{font-family:'JetBrains Mono';font-size:.72rem;color:var(--accent-2);letter-spacing:1.5px;margin-bottom:18px}
+  .step h3{font-size:1.2rem;font-family:'Instrument Serif';font-style:italic;font-weight:400;letter-spacing:-.01em;margin-bottom:10px;color:var(--text)}
+  .step p{color:var(--text-2);font-size:.92rem;font-weight:300}
+
+  /* ---------- PRICING ---------- */
+  .pricing{background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;max-width:1180px;margin:0 auto;align-items:stretch}
+  .tier{background:var(--bg-2);border:1px solid var(--border);border-radius:18px;padding:34px 28px;display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
+  .tier:hover{transform:translateY(-4px)}
+  .tier.pop{border:1px solid transparent;background:linear-gradient(var(--bg-2),var(--bg-2)) padding-box,linear-gradient(135deg,#4F8EFF,#36D4E5,#6BE6A4) border-box;position:relative}
+  .tier.pop .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(110deg,#4F8EFF,#36D4E5,#6BE6A4);color:var(--bg);font-family:'JetBrains Mono';font-size:.7rem;letter-spacing:1.5px;padding:5px 14px;border-radius:14px;font-weight:600}
+  .tier .name{font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-2);font-family:'JetBrains Mono';margin-bottom:14px}
+  .tier .price{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+  .tier .price .big{font-size:2.6rem;font-weight:600;letter-spacing:-.03em}
+  .tier .price .cur{color:var(--text-2);font-size:1.1rem}
+  .tier .price .sm{color:var(--text-3);font-size:.85rem}
+  .tier .priceRec{color:var(--text-3);font-size:.85rem;margin-bottom:24px}
+  .tier .desc{color:var(--text-2);font-size:.94rem;font-weight:300;margin-bottom:24px;min-height:60px}
+  .tier ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1}
+  .tier li{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;color:var(--text-2)}
+  .tier li svg{width:16px;height:16px;flex-shrink:0;margin-top:3px;color:var(--accent-3)}
+  .tier .btn{justify-content:center;width:100%}
+
+  /* ---------- ABOUT ---------- */
+  .about-row{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;max-width:1180px;margin:0 auto}
+  .about-text .kicker{color:var(--accent-2);font-family:'JetBrains Mono';font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px;display:inline-block}
+  .about-text h2{font-size:clamp(1.9rem,3.8vw,2.7rem);letter-spacing:-.03em}
+  .about-text p{color:var(--text-2);margin-top:18px;font-weight:300;font-size:1.02rem}
+  .quote{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.005));border:1px solid var(--border);border-radius:18px;padding:34px;position:relative}
+  .quote::before{content:'"';font-family:'Instrument Serif';font-style:italic;font-size:7rem;line-height:0.7;position:absolute;top:32px;left:24px;color:var(--accent);opacity:.25}
+  .quote q{font-family:'Instrument Serif';font-style:italic;font-size:1.45rem;line-height:1.4;display:block;padding-left:50px;color:var(--text);quotes:none}
+  .quote .who{margin-top:24px;padding-left:50px;display:flex;align-items:center;gap:12px;color:var(--text-3);font-size:.88rem}
+  .quote .who .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#4F8EFF,#6BE6A4);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-weight:600;color:var(--bg);font-size:.85rem}
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{text-align:center;padding:120px 6vw;position:relative;overflow:hidden}
+  .cta-band .orb{width:600px;height:600px;background:#4F8EFF;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.18;filter:blur(120px)}
+  .cta-band h2{font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;position:relative;z-index:2}
+  .cta-band p{color:var(--text-2);max-width:540px;margin:20px auto 36px;font-weight:300;position:relative;z-index:2}
+  .cta-band .hero-ctas{position:relative;z-index:2}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--bg-1);border-top:1px solid var(--border);padding:60px 6vw 28px}
+  .foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;max-width:1180px;margin:0 auto 40px}
+  .foot .br p{color:var(--text-2);font-size:.93rem;font-weight:300;margin-top:14px;max-width:280px}
+  footer h4{font-family:'JetBrains Mono';font-size:.74rem;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  footer ul a{color:var(--text-2);font-size:.92rem;transition:.2s}
+  footer ul a:hover{color:var(--text)}
+  .foot-copy{border-top:1px solid var(--border);padding-top:24px;max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;color:var(--text-3);font-size:.82rem;flex-wrap:wrap;gap:12px}
+
+  /* ---------- WHATSAPP FAB ---------- */
+  .wa-fab{position:fixed;bottom:96px;right:24px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:transform .25s}
+  .wa-fab:hover{transform:scale(1.1)}
+  .wa-fab svg{width:30px;height:30px;fill:#fff}
+
+  /* ---------- CHATBOT ---------- */
+  .chat-fab{position:fixed;bottom:24px;right:24px;z-index:90;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#4F8EFF,#36D4E5,#6BE6A4);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(54,212,229,.35);transition:transform .25s}
+  .chat-fab:hover{transform:scale(1.08)}
+  .chat-fab svg{width:26px;height:26px;fill:#07080F}
+  .chat-w{position:fixed;bottom:24px;right:24px;z-index:91;width:380px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 48px);background:var(--bg-2);border:1px solid var(--border-2);border-radius:18px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:popIn .3s ease}
+  .chat-w.open{display:flex}
+  @keyframes popIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+  .chat-h{background:var(--bg-1);padding:14px 18px;display:flex;align-items:center;gap:11px;border-bottom:1px solid var(--border)}
+  .chat-h .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#4F8EFF,#6BE6A4);display:flex;align-items:center;justify-content:center;color:var(--bg);font-family:'JetBrains Mono';font-weight:600}
+  .chat-h .ht{flex:1}
+  .chat-h .ht b{display:block;font-weight:500;font-size:.95rem}
+  .chat-h .ht small{font-size:.74rem;color:var(--text-3);display:flex;align-items:center;gap:6px}
+  .chat-h .ht .dot{width:7px;height:7px;border-radius:50%;background:#6BE6A4;animation:p 2s infinite}
+  .chat-close{background:none;border:none;color:var(--text-2);font-size:1.5rem;cursor:pointer;line-height:1}
+  .chat-close:hover{color:var(--text)}
+  .chat-b{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:10px}
+  .chat-b::-webkit-scrollbar{width:5px}
+  .chat-b::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:5px}
+  .msg{max-width:85%;padding:10px 14px;border-radius:13px;font-size:.92rem;line-height:1.5}
+  .msg.bot{align-self:flex-start;background:var(--bg-3);color:var(--text);border-bottom-left-radius:4px}
+  .msg.user{align-self:flex-end;background:linear-gradient(135deg,#4F8EFF,#36D4E5);color:var(--bg);border-bottom-right-radius:4px;font-weight:500}
+  .msg b{color:var(--accent-2)}
+  .msg.user b{color:var(--bg)}
+  .msg a{color:var(--accent-3);text-decoration:underline}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;border-top:1px solid var(--border)}
+  .chip{background:var(--bg-3);border:1px solid var(--border);color:var(--text);padding:6px 11px;border-radius:18px;font-size:.78rem;cursor:pointer;transition:.2s;font-family:inherit}
+  .chip:hover{border-color:var(--accent-2);color:var(--accent-2)}
+  .chat-in{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--border);background:var(--bg-1)}
+  .chat-in input{flex:1;background:var(--bg-2);border:1px solid var(--border);border-radius:22px;padding:10px 14px;color:var(--text);font-family:inherit;font-size:.9rem;outline:none}
+  .chat-in input:focus{border-color:var(--accent-2)}
+  .chat-send{background:var(--text);border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;color:var(--bg);font-size:1rem;display:flex;align-items:center;justify-content:center}
+  .typing{align-self:flex-start;background:var(--bg-3);padding:12px 16px;border-radius:13px;display:flex;gap:5px}
+  .typing span{width:7px;height:7px;background:var(--accent-2);border-radius:50%;animation:b 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+  @keyframes b{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-6px);opacity:1}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:900px){
+    .nav-links{position:fixed;inset:0 0 0 30%;background:var(--bg-1);border-left:1px solid var(--border);flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:transform .35s;z-index:100}
+    .nav-links.open{transform:translateX(0)}
+    .burger{display:flex}
+    .bento{grid-template-columns:1fr}
+    .bento .card{grid-column:span 1!important}
+    .card.c6{flex-direction:column;text-align:center}
+    .about-row{grid-template-columns:1fr;gap:40px}
+    .foot{grid-template-columns:1fr 1fr;gap:30px}
+  }
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="logo">
-    <div class="logo-icon">KT</div>
-    <span class="logo-text">Kanet<span>Tech</span></span>
-  </a>
-  <ul>
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-    <li><a href="https://wa.me/34614062503" target="_blank" class="btn-wa">WhatsApp</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="hero-bg"></div>
-  <div class="hero-bg2"></div>
-  <div style="position:relative;z-index:1">
-    <div class="hero-badge">Servicio técnico profesional en Rivas Vaciamadrid</div>
-    <h1>Tecnología que<br><span class="gradient">funciona</span></h1>
-    <p>Venta, reparación y mantenimiento de ordenadores. Soluciones profesionales con atención personalizada, diagnóstico gratuito y garantía incluida.</p>
-    <div class="hero-btns">
-      <a href="https://wa.me/34614062503" target="_blank" class="btn-primary">Contactar por WhatsApp →</a>
-      <a href="#servicios" class="btn-outline">Ver Servicios</a>
-    </div>
-    <div class="hero-tags">
-      <span class="hero-tag">🔧 Venta de Ordenadores</span>
-      <span class="hero-tag">🖥️ Reparación Profesional</span>
-      <span class="hero-tag">⚡ Mantenimiento Preventivo</span>
-    </div>
-  </div>
-</section>
-
-<!-- NOSOTROS -->
-<section class="nosotros" id="nosotros">
-  <div style="text-align:center">
-    <div class="section-badge">Sobre Nosotros</div>
-    <h2 class="section-title">Tu partner tecnológico<br><span class="gradient">de confianza</span></h2>
-  </div>
-  <div class="nosotros-grid">
-    <div class="nosotros-img"></div>
-    <div class="nosotros-text">
-      <p>En <strong>Kanet Technologies</strong>, somos especialistas en venta, reparación y mantenimiento de ordenadores. Ofrecemos equipos nuevos y reacondicionados, y solucionamos cualquier avería de hardware o software.</p>
-      <p>Ubicados en Rivas Vaciamadrid, nos diferenciamos por nuestro trato cercano, transparencia en precios y compromiso con la calidad. Diagnóstico gratuito, presupuesto sin compromiso y garantía en todas nuestras reparaciones.</p>
-      <div class="pills">
-        <span class="pill">Diagnóstico gratuito</span>
-        <span class="pill">Presupuesto sin compromiso</span>
-        <span class="pill">Garantía incluida</span>
-      </div>
-    </div>
-  </div>
-  <div class="stats-grid">
-    <div class="stat-card"><div class="stat-icon">👥</div><span class="stat-num">500+</span><span class="stat-label">Clientes Satisfechos</span></div>
-    <div class="stat-card"><div class="stat-icon">🕐</div><span class="stat-num">5+</span><span class="stat-label">Años de Experiencia</span></div>
-    <div class="stat-card"><div class="stat-icon">👍</div><span class="stat-num">98%</span><span class="stat-label">Tasa de Satisfacción</span></div>
-    <div class="stat-card"><div class="stat-icon">📍</div><span class="stat-num">1</span><span class="stat-label">Sede en Rivas</span></div>
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section class="servicios" id="servicios">
-  <div class="servicios-inner">
-    <div style="text-align:center">
-      <div class="section-badge">Servicios</div>
-      <h2 class="section-title">Todo lo que necesitas<br><span class="gradient">para tu ordenador</span></h2>
-      <p class="servicios-subtitle">Venta, reparación y mantenimiento de ordenadores. Soluciones profesionales con atención personalizada y garantía incluida.</p>
-    </div>
-    <div class="servicios-grid">
-      <div class="service-card">
-        <div class="service-icon-wrap icon-blue">🛒</div>
-        <h3>Venta de Ordenadores</h3>
-        <p>Equipos nuevos y reacondicionados adaptados a tus necesidades. Portátiles, sobremesa, componentes y periféricos con la mejor relación calidad-precio.</p>
-        <ul>
-          <li>Portátiles y sobremesa</li>
-          <li>Componentes y periféricos</li>
-          <li>Asesoramiento personalizado</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon-wrap icon-purple">🖥️</div>
-        <h3>Reparación de Ordenadores</h3>
-        <p>Diagnóstico y reparación de todo tipo de averías en portátiles y sobremesa. Pantallas, placas base, discos duros, software y más.</p>
-        <ul>
-          <li>Diagnóstico gratuito</li>
-          <li>Reparación de hardware y software</li>
-          <li>Recuperación de datos</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon-wrap icon-pink">🛡️</div>
-        <h3>Mantenimiento de Ordenadores</h3>
-        <p>Limpieza, optimización y actualización de tu equipo para mantenerlo funcionando como el primer día. Planes de mantenimiento preventivo.</p>
-        <ul>
-          <li>Limpieza y optimización</li>
-          <li>Actualización de componentes</li>
-          <li>Mantenimiento preventivo</li>
-        </ul>
-      </div>
-    </div>
-    <div class="img-grid">
-      <div class="img-card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Componentes de calidad">
-        <div class="img-card-text">
-          <h3>Componentes de Calidad</h3>
-          <p>Solo trabajamos con las mejores marcas</p>
-        </div>
-      </div>
-      <div class="img-card">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Servicio profesional">
-        <div class="img-card-text">
-          <h3>Servicio Profesional</h3>
-          <p>Diagnóstico gratuito y garantía incluida</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section class="contacto" id="contacto">
-  <div style="text-align:center">
-    <div class="section-badge">Contacto</div>
-    <h2 class="section-title">¿Necesitas ayuda?<br><span class="gradient">Hablemos</span></h2>
-    <p style="color:rgba(255,255,255,0.55);margin-bottom:3rem">Cuéntanos tu problema y te daremos una solución rápida y profesional.<br>Presupuesto sin compromiso.</p>
-  </div>
-  <div class="contacto-grid">
-    <div class="contact-cards">
-      <div class="contact-card">
-        <div class="contact-card-icon c-green">💬</div>
-        <div>
-          <h4>WhatsApp</h4>
-          <a href="https://wa.me/34614062503" target="_blank">Respuesta inmediata →</a>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card-icon c-blue">✉️</div>
-        <div>
-          <h4>Email</h4>
-          <p>info@kanettech.com</p>
-          <a href="mailto:info@kanettech.com">Envíanos un correo →</a>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card-icon c-purple">📍</div>
-        <div>
-          <h4>Ubicación</h4>
-          <p>Calle Vicente Aranda 2<br>28521, Rivas Vaciamadrid</p>
-        </div>
-      </div>
-    </div>
-    <div class="form-card">
-      <h3>Envíanos un mensaje</h3>
-      <div class="form-group">
-        <label>Nombre *</label>
-        <input type="text" placeholder="Tu nombre">
-      </div>
-      <div class="form-group">
-        <label>Email *</label>
-        <input type="email" placeholder="tu@email.com">
-      </div>
-      <div class="form-group">
-        <label>Mensaje *</label>
-        <textarea placeholder="Describe tu problema o consulta..."></textarea>
-      </div>
-      <button class="btn-submit" onclick="sendWhatsApp()">Enviar Mensaje ✉️</button>
-    </div>
-  </div>
-</section>
-
-<!-- MAP -->
-<div class="map-wrap">
-  <div class="map-frame">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.5!2d-3.5369!3d40.3555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd41879b7b6b6b6b%3A0x0!2sCalle+Vicente+Aranda+2%2C+Rivas-Vaciamadrid!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses" allowfullscreen loading="lazy"></iframe>
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="left"><span class="pulse"></span><span data-i18n="topbar">Disponible para nuevos proyectos · Remoto global</span></div>
+  <div class="lang-toggle">
+    <button id="btnES" class="active" onclick="setLang('es')">ES</button>
+    <button id="btnEN" onclick="setLang('en')">EN</button>
   </div>
 </div>
 
-<footer>
-  <p>© 2026 <span>Kanet Technologies</span> — Rivas-Vaciamadrid, Madrid</p>
-  <p>Servicio técnico informático profesional</p>
-</footer>
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <a href="#top" class="logo"><span class="mark"></span>KanetTech</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#services" onclick="closeMenu()" data-i18n="nav.services">Servicios</a>
+    <a href="#portfolio" onclick="closeMenu()" data-i18n="nav.portfolio">Casos</a>
+    <a href="#process" onclick="closeMenu()" data-i18n="nav.process">Proceso</a>
+    <a href="#pricing" onclick="closeMenu()" data-i18n="nav.pricing">Planes</a>
+    <a href="#contact" onclick="closeMenu()" class="nav-cta" data-i18n="nav.cta">Empezar →</a>
+  </div>
+  <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
 
-<!-- CHATBOT -->
-<button class="chat-btn" onclick="toggleChat()">💬</button>
-<div class="chat-bubble" id="chatBubble">
-  <div class="chat-header">
-    <div class="chat-avatar">🤖</div>
-    <div class="chat-header-text">
-      <h4>Asistente Kanet</h4>
-      <p>En línea</p>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+  <div class="grid-bg"></div>
+  <div class="hero-inner">
+    <span class="hero-tag"><span class="dot"></span><span data-i18n="hero.tag">Diseño · Automatización · IA</span></span>
+    <h1 data-i18n="hero.title">Sitios web, automatización e <span class="serif-it gtext">IA</span> que hacen <span class="serif-it gtext">crecer</span> tu negocio.</h1>
+    <p class="lead" data-i18n="hero.lead">Webs profesionales, chatbots inteligentes y automatizaciones a medida para PYMEs. 100% remoto, desde España para España, Latinoamérica y EEUU.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/34617322964?text=Hola%20KanetTech%2C%20me%20gustar%C3%ADa%20una%20propuesta%20para%20mi%20negocio." target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero.cta1">Pide tu propuesta →</a>
+      <a href="#portfolio" class="btn btn-ghost" data-i18n="hero.cta2">Ver casos</a>
+    </div>
+    <div class="hero-meta">
+      <span class="item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><span data-i18n="hero.m1">10+ años en IT internacional</span></span>
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="hero.m2">Servicio bilingüe ES/EN</span></span>
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg><span data-i18n="hero.m3">Clientes en 3 países</span></span>
     </div>
   </div>
-  <div class="chat-messages" id="chatMessages">
-    <div class="chat-msg">¡Hola! 👋 Soy el asistente de Kanet Technologies. ¿En qué puedo ayudarte hoy?</div>
-    <div class="chat-msg">Puedo orientarte sobre reparaciones, precios o cómo contactarnos por WhatsApp.</div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="trust">
+  <div class="label" data-i18n="trust.label">Trabajos recientes</div>
+  <div class="row">
+    <a href="#portfolio" class="brand-name ft">FAT TACO</a>
+    <span class="sep">·</span>
+    <a href="#portfolio" class="brand-name">Regal Space Solutions</a>
+    <span class="sep">·</span>
+    <a href="#portfolio" class="brand-name" data-i18n="trust.more">y más</a>
   </div>
-  <div class="chat-input-area">
-    <input class="chat-input" id="chatInput" placeholder="Escribe tu consulta..." onkeydown="if(event.key==='Enter')sendChat()">
-    <button class="chat-send" onclick="sendChat()">➤</button>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="sec-head">
+    <span class="kicker" data-i18n="svc.kicker">01 — Servicios</span>
+    <h2 data-i18n="svc.title">Lo que construimos <span class="serif-it gtext">para ti</span></h2>
+    <p data-i18n="svc.sub">Desde una landing simple hasta un sistema completo con automatización e IA. Todo lo necesario para que tu negocio funcione mejor y venda más.</p>
+  </div>
+  <div class="bento">
+    <div class="card c1">
+      <span class="num">01</span>
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 12h6"/></svg></div>
+      <h3 data-i18n="svc.s1.t">Diseño y desarrollo web</h3>
+      <p data-i18n="svc.s1.d">Sitios elegantes, rápidos y optimizados para móvil. Desde landing pages hasta webs corporativas completas con SEO incluido.</p>
+    </div>
+    <div class="card c2">
+      <span class="num">02</span>
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.4 8.4 0 01-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.4 8.4 0 013.8-.9h.5a8.5 8.5 0 018 8v.5z"/></svg></div>
+      <h3 data-i18n="svc.s2.t">Chatbots & WhatsApp</h3>
+      <p data-i18n="svc.s2.d">Asistentes virtuales 24/7 integrados a tu web y WhatsApp Business. Responden preguntas, capturan leads y agendan citas mientras tú duermes.</p>
+    </div>
+    <div class="card c3">
+      <span class="num">03</span>
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+      <h3 data-i18n="svc.s3.t">Automatización con IA</h3>
+      <p data-i18n="svc.s3.d">Flujos con n8n, Make y Zapier. Conectamos tu CRM, formularios, email y hojas de cálculo para que el trabajo se haga solo.</p>
+    </div>
+    <div class="card c4">
+      <span class="num">04</span>
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v8M4.93 10.93l5.66 5.66M2 18h8M21 4l-9 9M21 4v6M21 4h-6"/></svg></div>
+      <h3 data-i18n="svc.s4.t">Mantenimiento web</h3>
+      <p data-i18n="svc.s4.d">Tu web siempre actualizada, segura y con copias de seguridad. Soporte mensual sin sorpresas.</p>
+    </div>
+    <div class="card c5">
+      <span class="num">05</span>
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a3 3 0 010 6h-1"/><rect x="2" y="8" width="16" height="10" rx="2"/><path d="M6 1v3M10 1v3M14 1v3"/></svg></div>
+      <h3 data-i18n="svc.s5.t">Microsoft 365 / Workspace</h3>
+      <p data-i18n="svc.s5.d">Setup de correo profesional, Drive, usuarios y permisos. Tu empresa lista para escalar.</p>
+    </div>
+    <div class="card c6">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
+      <div class="ct">
+        <h3 data-i18n="svc.s6.t">Asesoría Cloud (Azure & AWS)</h3>
+        <p data-i18n="svc.s6.d">Con 10+ años en arquitectura de soluciones cloud para empresas globales, te ayudo a migrar, optimizar costes y gobernar tu infraestructura. Para PYMEs en crecimiento y empresas medianas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="portfolio" id="portfolio">
+  <div class="sec-head">
+    <span class="kicker" data-i18n="port.kicker">02 — Casos recientes</span>
+    <h2 data-i18n="port.title">Webs <span class="serif-it gtext">en producción</span></h2>
+    <p data-i18n="port.sub">Proyectos reales lanzados en las últimas semanas — cada uno con chatbot, WhatsApp y diseño hecho a medida.</p>
+  </div>
+  <div class="cases">
+    <div class="case">
+      <div class="browser"><div class="dots"><span></span><span></span><span></span></div><div class="url">https://bluesstick.github.io/FatTacoWeb/</div></div>
+      <div class="shot"><img src="img/portfolio-fattaco.jpg" alt="Fat Taco · Taquería"></div>
+      <div class="ct">
+        <div class="tags"><span class="tag">Website</span><span class="tag">Chatbot</span><span class="tag">WhatsApp</span></div>
+        <h3>Fat Taco · Taquería Búcara</h3>
+        <p data-i18n="port.c1.d">Landing vibrante para una taquería en Bucaramanga, Colombia. Menú, ubicación, chatbot inteligente y pedidos directos por WhatsApp.</p>
+        <a href="https://bluesstick.github.io/FatTacoWeb/" target="_blank" rel="noopener" class="lk" data-i18n="port.visit">Visitar sitio →</a>
+      </div>
+    </div>
+    <div class="case">
+      <div class="browser"><div class="dots"><span></span><span></span><span></span></div><div class="url">regal-space-solutions.com</div></div>
+      <div class="shot"><img src="img/portfolio-regal.jpg" alt="Regal Space Solutions"></div>
+      <div class="ct">
+        <div class="tags"><span class="tag">Website</span><span class="tag">Premium</span><span class="tag">Bilingual-ready</span></div>
+        <h3>Regal Space Solutions</h3>
+        <p data-i18n="port.c2.d">Web premium para una empresa de muebles a medida en Jacksonville, Florida. Estética navy + dorado, mapa, chatbot y CTAs a cotización.</p>
+        <a href="#" class="lk" data-i18n="port.soon">Lanzamiento próximo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="sec-head">
+    <span class="kicker" data-i18n="proc.kicker">03 — Cómo trabajamos</span>
+    <h2 data-i18n="proc.title">Un proceso <span class="serif-it gtext">claro</span> y directo</h2>
+    <p data-i18n="proc.sub">De la primera conversación al lanzamiento, sin perderte en jerga técnica ni sorpresas.</p>
+  </div>
+  <div class="proc">
+    <div class="step"><div class="n">01 — Discovery</div><h3 data-i18n="proc.s1.t">Conversamos</h3><p data-i18n="proc.s1.d">Entendemos tu negocio, objetivos y a quién le hablas. Sin compromiso.</p></div>
+    <div class="step"><div class="n">02 — Design</div><h3 data-i18n="proc.s2.t">Diseñamos</h3><p data-i18n="proc.s2.d">Propuesta visual y estructura. Tú apruebas antes de seguir.</p></div>
+    <div class="step"><div class="n">03 — Build</div><h3 data-i18n="proc.s3.t">Construimos</h3><p data-i18n="proc.s3.d">Desarrollamos con código limpio, optimizado y listo para escalar.</p></div>
+    <div class="step"><div class="n">04 — Launch</div><h3 data-i18n="proc.s4.t">Lanzamos</h3><p data-i18n="proc.s4.d">Publicamos, te entrenamos y quedamos para mantenimiento opcional.</p></div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="sec-head">
+    <span class="kicker" data-i18n="price.kicker">04 — Planes</span>
+    <h2 data-i18n="price.title">Precios <span class="serif-it gtext">honestos</span></h2>
+    <p data-i18n="price.sub">Paquetes claros, todo incluido. Sin letra pequeña ni costes ocultos. Personalizable a tu necesidad.</p>
+  </div>
+  <div class="tiers">
+    <div class="tier">
+      <div class="name">Starter</div>
+      <div class="price"><span class="cur">€</span><span class="big">500</span></div>
+      <div class="priceRec" data-i18n="price.t1.rec">+ €25/mes mantenimiento</div>
+      <p class="desc" data-i18n="price.t1.d">Para emprendedores y locales que necesitan presencia online sólida y profesional.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t1.f1">Web one-page responsive</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t1.f2">Botón WhatsApp y formularios</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t1.f3">SEO básico + Google Business</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t1.f4">Dominio y hosting incluidos</span></li>
+      </ul>
+      <a href="https://wa.me/34617322964?text=Hola%2C%20me%20interesa%20el%20plan%20Starter." target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="price.choose">Elegir plan</a>
+    </div>
+    <div class="tier pop">
+      <div class="badge" data-i18n="price.popular">MÁS POPULAR</div>
+      <div class="name">Pro</div>
+      <div class="price"><span class="cur">€</span><span class="big">800</span></div>
+      <div class="priceRec" data-i18n="price.t2.rec">+ €50/mes con automatizaciones</div>
+      <p class="desc" data-i18n="price.t2.d">Para negocios que quieren vender más y atender mejor sin contratar a nadie.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t2.f1">Todo lo del Starter</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t2.f2">Chatbot inteligente integrado</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t2.f3">Email marketing (1 campaña/mes)</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t2.f4">Web multi-página + blog</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t2.f5">Analítica y reportes mensuales</span></li>
+      </ul>
+      <a href="https://wa.me/34617322964?text=Hola%2C%20me%20interesa%20el%20plan%20Pro." target="_blank" rel="noopener" class="btn btn-primary" data-i18n="price.choose">Elegir plan</a>
+    </div>
+    <div class="tier">
+      <div class="name">Premium</div>
+      <div class="price"><span class="cur">€</span><span class="big">1,500</span></div>
+      <div class="priceRec" data-i18n="price.t3.rec">+ €90/mes con todo incluido</div>
+      <p class="desc" data-i18n="price.t3.d">Para empresas que quieren digitalizar procesos y escalar con IA.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t3.f1">Todo lo del Pro</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t3.f2">Automatización IA (n8n/Make)</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t3.f3">Dashboard de negocio</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t3.f4">Integración CRM y formularios</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t3.f5">Soporte prioritario</span></li>
+      </ul>
+      <a href="https://wa.me/34617322964?text=Hola%2C%20me%20interesa%20el%20plan%20Premium." target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="price.choose">Elegir plan</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="about-row">
+    <div class="about-text">
+      <span class="kicker" data-i18n="about.kicker">05 — Quién está detrás</span>
+      <h2 data-i18n="about.title">Hecho por alguien que <span class="serif-it gtext">ya estuvo</span> donde tú estás.</h2>
+      <p data-i18n="about.p1">Más de 10 años en IT internacional — España, Canadá e Irlanda — diseñando soluciones cloud, automatización y arquitectura técnica para empresas globales.</p>
+      <p data-i18n="about.p2">Hoy aplico esa experiencia para ayudar a PYMEs y emprendedores a digitalizarse sin pagar precios de agencia ni esperar meses.</p>
+    </div>
+    <div class="quote">
+      <q data-i18n="about.quote">Trato cada proyecto como si fuera el mío. Diseño limpio, código sólido y comunicación directa — sin ruido.</q>
+      <div class="who"><div class="av">EM</div><div><b style="color:var(--text)">Edwin Mendoza</b> · <span data-i18n="about.founder">Founder, KanetTech</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band" id="contact">
+  <div class="orb"></div>
+  <h2 data-i18n="cta.title">¿Empezamos tu <span class="serif-it gtext">proyecto</span>?</h2>
+  <p data-i18n="cta.sub">Cuéntame qué necesitas. Respondo personalmente en menos de 24h con una propuesta clara.</p>
+  <div class="hero-ctas">
+    <a href="https://wa.me/34617322964?text=Hola%20KanetTech%2C%20me%20gustar%C3%ADa%20una%20propuesta%20para%20mi%20negocio." target="_blank" rel="noopener" class="btn btn-primary" data-i18n="cta.btn1">Hablar por WhatsApp →</a>
+    <a href="mailto:edwinmram@gmail.com" class="btn btn-ghost" data-i18n="cta.btn2">Enviar email</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot">
+    <div class="br">
+      <a href="#top" class="logo"><span class="mark"></span>KanetTech</a>
+      <p data-i18n="foot.tagline">Diseño web, automatización e IA para PYMEs. 100% remoto, servicio en español e inglés.</p>
+    </div>
+    <div>
+      <h4 data-i18n="foot.serv">Servicios</h4>
+      <ul>
+        <li><a href="#services" data-i18n="svc.s1.t">Web</a></li>
+        <li><a href="#services" data-i18n="svc.s2.t">Chatbots</a></li>
+        <li><a href="#services" data-i18n="svc.s3.t">Automatización</a></li>
+        <li><a href="#services" data-i18n="svc.s6.t">Cloud</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="foot.comp">Compañía</h4>
+      <ul>
+        <li><a href="#portfolio" data-i18n="nav.portfolio">Casos</a></li>
+        <li><a href="#pricing" data-i18n="nav.pricing">Planes</a></li>
+        <li><a href="#about" data-i18n="foot.about">Sobre nosotros</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="foot.contact">Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/34617322964" target="_blank" rel="noopener">WhatsApp +34 617 322 964</a></li>
+        <li><a href="mailto:edwinmram@gmail.com">edwinmram@gmail.com</a></li>
+        <li><a href="https://linkedin.com/in/edwin-s-mendoza" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/bluesstick" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-copy">
+    <span>© 2026 KanetTech · <span data-i18n="foot.rights">Todos los derechos reservados</span></span>
+    <span data-i18n="foot.built">Hecho con cuidado desde Madrid, España 🇪🇸</span>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FAB ============ -->
+<a class="wa-fab" id="waFab" href="https://wa.me/34617322964?text=Hola%20KanetTech!" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2.1-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4.1.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.3 8.3 0 1 1 12 20.3z"/></svg>
+</a>
+
+<!-- ============ CHATBOT ============ -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Chat">
+  <svg viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.3 1.2 4.4 3.2 5.8L4 21l4.5-1.6c1.1.3 2.3.5 3.5.5 5.5 0 10-3.6 10-8s-4.5-8-10-8z"/></svg>
+</button>
+<div class="chat-w" id="chatW">
+  <div class="chat-h">
+    <div class="av">K</div>
+    <div class="ht"><b data-i18n="chat.name">Asistente KanetTech</b><small><span class="dot"></span> <span data-i18n="chat.status">En línea · Responde al instante</span></small></div>
+    <button class="chat-close" onclick="toggleChat()">×</button>
+  </div>
+  <div class="chat-b" id="chatB"></div>
+  <div class="chips" id="chips"></div>
+  <div class="chat-in">
+    <input type="text" id="chatI" data-i18n-ph="chat.ph" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')sendMsg()">
+    <button class="chat-send" onclick="sendMsg()" aria-label="Send">➤</button>
   </div>
 </div>
 
 <script>
-function toggleChat() {
-  document.getElementById('chatBubble').classList.toggle('open');
-}
-
-const WA = 'https://wa.me/34614062503';
-
-const responses = [
-  { keys: ['hola','buenas','buenos','hey','saludos'], reply: '¡Hola! 👋 Bienvenido a Kanet Technologies. Puedo ayudarte con servicios, precios, tiempos o ubicación. ¿Qué necesitas?' },
-  { keys: ['servicio','servicios','que hac','que ofrecen','ofreceis'], reply: '🛠️ Nuestros servicios:<br><br>• <b>Venta</b> de ordenadores nuevos y reacondicionados<br>• <b>Reparación</b> de hardware y software<br>• <b>Mantenimiento preventivo</b> y limpieza<br>• <b>Recuperación de datos</b><br>• <b>Soporte remoto</b><br>• <b>Servicio a domicilio</b> en Rivas y alrededores<br><br>¿Sobre cuál quieres más info?' },
-  { keys: ['precio','precios','cuanto','cuánto','cuesta','cobran','tarifa','presupuesto'], reply: '💰 Precios orientativos:<br><br>• Diagnóstico: <b>GRATIS</b> ✅<br>• Limpieza y optimización: desde <b>25€</b><br>• Pasta térmica: <b>20€</b><br>• Formateo + SO: desde <b>40€</b><br>• Cambio de pantalla: desde <b>60€</b><br>• Disco duro/SSD: desde <b>50€</b> + componente<br>• Batería: desde <b>45€</b><br>• Recuperación datos: desde <b>60€</b><br><br>📌 Presupuesto sin compromiso antes de empezar.' },
-  { keys: ['reparacion','reparación','reparar','averia','avería','no arranca','no enciende','pantalla','no funciona','roto'], reply: '🔧 Reparamos portátiles y sobremesa:<br><br>• Pantallas rotas<br>• Placas base<br>• Discos duros y SSD<br>• Teclados y puertos<br>• Software y virus<br>• Recuperación de datos<br><br>Diagnóstico <b>gratuito</b> y presupuesto antes de empezar. ¿Qué problema tienes?' },
-  { keys: ['domicilio','casa','desplazamiento','vienen','venís','venid'], reply: '🏠 Sí, ofrecemos <b>servicio a domicilio</b> en Rivas-Vaciamadrid y alrededores. Contáctanos por <a href="' + WA + '" target="_blank" style="color:#a78bfa">WhatsApp</a> para coordinar la visita.' },
-  { keys: ['remoto','remotamente','online','desde casa','sin salir'], reply: '💻 Sí, tenemos <b>soporte remoto</b> para problemas de software, virus, configuraciones y más — sin salir de casa.<br><br>Precio: desde <b>20€/sesión</b>. Contáctanos y te conectamos en minutos.' },
-  { keys: ['tiempo','cuanto tarda','tarda','plazo','rapido','rápido'], reply: '⏱️ Tiempos estimados:<br><br>• Diagnóstico: mismo día<br>• Limpieza/formateo: 24-48h<br>• Cambio de componentes: 24-72h<br>• Reparaciones complejas: 3-5 días<br><br>Te avisamos cuando esté listo 📱' },
-  { keys: ['donde','ubicacion','ubicación','direccion','dirección','dónde','local','tienda'], reply: '📍 Estamos en:<br><br><b>Calle Vicente Aranda 2<br>28521, Rivas-Vaciamadrid, Madrid</b><br><br>También hacemos servicio a domicilio y soporte remoto.' },
-  { keys: ['horario','hora','abierto','cuando abren','cuando estan'], reply: '🕐 Horario:<br><br>• Lunes a Viernes: <b>9:00 - 19:00</b><br>• Sábados: <b>10:00 - 14:00</b><br><br>Por WhatsApp puedes escribirnos cuando quieras.' },
-  { keys: ['venta','comprar','ordenador','portatil','portátil','sobremesa','reacondicionado'], reply: '🖥️ Vendemos equipos nuevos y reacondicionados:<br><br>• Portátiles reacondicionados: desde <b>150€</b><br>• Sobremesa reacondicionados: desde <b>120€</b><br>• Portátiles nuevos: desde <b>350€</b><br><br>Todos con garantía ✅' },
-  { keys: ['garantia','garantía'], reply: '✅ Todas las reparaciones incluyen <b>garantía de 3 meses</b> en mano de obra. Los componentes nuevos tienen garantía del fabricante (1-2 años).' },
-  { keys: ['virus','malware','lento','va lento','lentitud'], reply: '🦠 Solucionamos problemas de virus y rendimiento:<br><br>• Eliminación de virus: desde <b>35€</b><br>• Limpieza y optimización: desde <b>25€</b><br>• Formateo completo: desde <b>40€</b><br><br>Diagnóstico gratuito 🔍' },
-  { keys: ['datos','recuperar','archivos','perdidos','backup'], reply: '💾 Recuperación de datos:<br><br>• Diagnóstico: <b>GRATIS</b><br>• Recuperación básica: desde <b>60€</b><br>• Recuperación avanzada: desde <b>100€</b><br><br>⚠️ <b>No cobramos si no recuperamos tus datos.</b>' },
-  { keys: ['contacto','contactar','whatsapp','telefono','teléfono','email','correo'], reply: '📞 Contáctanos:<br><br>• <a href="' + WA + '" target="_blank" style="color:#a78bfa">WhatsApp: 614 062 503</a> (respuesta inmediata)<br>• Email: info@kanettech.com<br>• Presencial: Calle Vicente Aranda 2, Rivas-Vaciamadrid' },
-  { keys: ['gracias','muchas gracias','ok','perfecto','genial','vale'], reply: '😊 ¡De nada! Si tienes más preguntas aquí estamos. También puedes escribirnos por <a href="' + WA + '" target="_blank" style="color:#a78bfa">WhatsApp</a> para respuesta inmediata.' }
-];
-
-function getReply(msg) {
-  const lower = msg.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  for (const r of responses) {
-    if (r.keys.some(k => lower.includes(k))) return r.reply;
+/* ============ i18n DICTIONARY ============ */
+const I18N = {
+  es: {
+    "topbar":"Disponible para nuevos proyectos · Remoto global",
+    "nav.services":"Servicios","nav.portfolio":"Casos","nav.process":"Proceso","nav.pricing":"Planes","nav.cta":"Empezar →",
+    "hero.tag":"Diseño · Automatización · IA",
+    "hero.title":'Sitios web, automatización e <span class="serif-it gtext">IA</span> que hacen <span class="serif-it gtext">crecer</span> tu negocio.',
+    "hero.lead":"Webs profesionales, chatbots inteligentes y automatizaciones a medida para PYMEs. 100% remoto, desde España para España, Latinoamérica y EEUU.",
+    "hero.cta1":"Pide tu propuesta →","hero.cta2":"Ver casos",
+    "hero.m1":"10+ años en IT internacional","hero.m2":"Servicio bilingüe ES/EN","hero.m3":"Clientes en 3 países",
+    "trust.label":"TRABAJOS RECIENTES","trust.more":"y más",
+    "svc.kicker":"01 — Servicios",
+    "svc.title":'Lo que construimos <span class="serif-it gtext">para ti</span>',
+    "svc.sub":"Desde una landing simple hasta un sistema completo con automatización e IA. Todo lo necesario para que tu negocio funcione mejor y venda más.",
+    "svc.s1.t":"Diseño y desarrollo web","svc.s1.d":"Sitios elegantes, rápidos y optimizados para móvil. Desde landing pages hasta webs corporativas completas con SEO incluido.",
+    "svc.s2.t":"Chatbots & WhatsApp","svc.s2.d":"Asistentes virtuales 24/7 integrados a tu web y WhatsApp Business. Responden preguntas, capturan leads y agendan citas mientras tú duermes.",
+    "svc.s3.t":"Automatización con IA","svc.s3.d":"Flujos con n8n, Make y Zapier. Conectamos tu CRM, formularios, email y hojas de cálculo para que el trabajo se haga solo.",
+    "svc.s4.t":"Mantenimiento web","svc.s4.d":"Tu web siempre actualizada, segura y con copias de seguridad. Soporte mensual sin sorpresas.",
+    "svc.s5.t":"Microsoft 365 / Workspace","svc.s5.d":"Setup de correo profesional, Drive, usuarios y permisos. Tu empresa lista para escalar.",
+    "svc.s6.t":"Asesoría Cloud (Azure & AWS)","svc.s6.d":"Con 10+ años en arquitectura de soluciones cloud para empresas globales, te ayudo a migrar, optimizar costes y gobernar tu infraestructura. Para PYMEs en crecimiento y empresas medianas.",
+    "port.kicker":"02 — Casos recientes",
+    "port.title":'Webs <span class="serif-it gtext">en producción</span>',
+    "port.sub":"Proyectos reales lanzados en las últimas semanas — cada uno con chatbot, WhatsApp y diseño hecho a medida.",
+    "port.c1.d":"Landing vibrante para una taquería en Bucaramanga, Colombia. Menú, ubicación, chatbot inteligente y pedidos directos por WhatsApp.",
+    "port.c2.d":"Web premium para una empresa de muebles a medida en Jacksonville, Florida. Estética navy + dorado, mapa, chatbot y CTAs a cotización.",
+    "port.visit":"Visitar sitio →","port.soon":"Lanzamiento próximo →",
+    "proc.kicker":"03 — Cómo trabajamos",
+    "proc.title":'Un proceso <span class="serif-it gtext">claro</span> y directo',
+    "proc.sub":"De la primera conversación al lanzamiento, sin perderte en jerga técnica ni sorpresas.",
+    "proc.s1.t":"Conversamos","proc.s1.d":"Entendemos tu negocio, objetivos y a quién le hablas. Sin compromiso.",
+    "proc.s2.t":"Diseñamos","proc.s2.d":"Propuesta visual y estructura. Tú apruebas antes de seguir.",
+    "proc.s3.t":"Construimos","proc.s3.d":"Desarrollamos con código limpio, optimizado y listo para escalar.",
+    "proc.s4.t":"Lanzamos","proc.s4.d":"Publicamos, te entrenamos y quedamos para mantenimiento opcional.",
+    "price.kicker":"04 — Planes",
+    "price.title":'Precios <span class="serif-it gtext">honestos</span>',
+    "price.sub":"Paquetes claros, todo incluido. Sin letra pequeña ni costes ocultos. Personalizable a tu necesidad.",
+    "price.popular":"MÁS POPULAR","price.choose":"Elegir plan",
+    "price.t1.rec":"+ €25/mes mantenimiento",
+    "price.t1.d":"Para emprendedores y locales que necesitan presencia online sólida y profesional.",
+    "price.t1.f1":"Web one-page responsive","price.t1.f2":"Botón WhatsApp y formularios","price.t1.f3":"SEO básico + Google Business","price.t1.f4":"Dominio y hosting incluidos",
+    "price.t2.rec":"+ €50/mes con automatizaciones",
+    "price.t2.d":"Para negocios que quieren vender más y atender mejor sin contratar a nadie.",
+    "price.t2.f1":"Todo lo del Starter","price.t2.f2":"Chatbot inteligente integrado","price.t2.f3":"Email marketing (1 campaña/mes)","price.t2.f4":"Web multi-página + blog","price.t2.f5":"Analítica y reportes mensuales",
+    "price.t3.rec":"+ €90/mes con todo incluido",
+    "price.t3.d":"Para empresas que quieren digitalizar procesos y escalar con IA.",
+    "price.t3.f1":"Todo lo del Pro","price.t3.f2":"Automatización IA (n8n/Make)","price.t3.f3":"Dashboard de negocio","price.t3.f4":"Integración CRM y formularios","price.t3.f5":"Soporte prioritario",
+    "about.kicker":"05 — Quién está detrás",
+    "about.title":'Hecho por alguien que <span class="serif-it gtext">ya estuvo</span> donde tú estás.',
+    "about.p1":"Más de 10 años en IT internacional — España, Canadá e Irlanda — diseñando soluciones cloud, automatización y arquitectura técnica para empresas globales.",
+    "about.p2":"Hoy aplico esa experiencia para ayudar a PYMEs y emprendedores a digitalizarse sin pagar precios de agencia ni esperar meses.",
+    "about.quote":"Trato cada proyecto como si fuera el mío. Diseño limpio, código sólido y comunicación directa — sin ruido.",
+    "about.founder":"Founder, KanetTech",
+    "cta.title":'¿Empezamos tu <span class="serif-it gtext">proyecto</span>?',
+    "cta.sub":"Cuéntame qué necesitas. Respondo personalmente en menos de 24h con una propuesta clara.",
+    "cta.btn1":"Hablar por WhatsApp →","cta.btn2":"Enviar email",
+    "foot.tagline":"Diseño web, automatización e IA para PYMEs. 100% remoto, servicio en español e inglés.",
+    "foot.serv":"Servicios","foot.comp":"Compañía","foot.contact":"Contacto","foot.about":"Sobre nosotros",
+    "foot.rights":"Todos los derechos reservados","foot.built":"Hecho con cuidado desde Madrid, España 🇪🇸",
+    "chat.name":"Asistente KanetTech","chat.status":"En línea · Responde al instante","chat.ph":"Escribe tu pregunta...",
+  },
+  en: {
+    "topbar":"Available for new projects · Remote, global",
+    "nav.services":"Services","nav.portfolio":"Work","nav.process":"Process","nav.pricing":"Pricing","nav.cta":"Get started →",
+    "hero.tag":"Design · Automation · AI",
+    "hero.title":'Websites, automation and <span class="serif-it gtext">AI</span> that <span class="serif-it gtext">grow</span> your business.',
+    "hero.lead":"Professional websites, intelligent chatbots and tailored automations for SMBs. 100% remote, from Spain to Spain, Latin America and the USA.",
+    "hero.cta1":"Get your proposal →","hero.cta2":"See work",
+    "hero.m1":"10+ years in international IT","hero.m2":"Bilingual service EN/ES","hero.m3":"Clients across 3 countries",
+    "trust.label":"RECENT WORK","trust.more":"and more",
+    "svc.kicker":"01 — Services",
+    "svc.title":'What we build <span class="serif-it gtext">for you</span>',
+    "svc.sub":"From a simple landing to a full system with automation and AI. Everything your business needs to run smoother and sell more.",
+    "svc.s1.t":"Web design & development","svc.s1.d":"Elegant, fast and mobile-optimized sites. From landing pages to full corporate websites with SEO included.",
+    "svc.s2.t":"Chatbots & WhatsApp","svc.s2.d":"24/7 virtual assistants integrated with your site and WhatsApp Business. They answer, capture leads and book appointments while you sleep.",
+    "svc.s3.t":"AI Automation","svc.s3.d":"Workflows with n8n, Make and Zapier. We connect your CRM, forms, email and spreadsheets so the work runs itself.",
+    "svc.s4.t":"Web maintenance","svc.s4.d":"Your site always updated, secure and backed up. Monthly support with no surprises.",
+    "svc.s5.t":"Microsoft 365 / Workspace","svc.s5.d":"Professional email setup, Drive, users and permissions. Your company ready to scale.",
+    "svc.s6.t":"Cloud Advisory (Azure & AWS)","svc.s6.d":"With 10+ years in cloud architecture for global enterprises, I help you migrate, optimize costs and govern your infrastructure. For growing SMBs and mid-sized companies.",
+    "port.kicker":"02 — Recent work",
+    "port.title":'Websites <span class="serif-it gtext">in production</span>',
+    "port.sub":"Real projects launched in recent weeks — each with chatbot, WhatsApp and custom design.",
+    "port.c1.d":"Vibrant landing for a taqueria in Bucaramanga, Colombia. Menu, location, smart chatbot and direct orders via WhatsApp.",
+    "port.c2.d":"Premium site for a custom cabinetry company in Jacksonville, Florida. Navy + gold aesthetic, map, chatbot and quote CTAs.",
+    "port.visit":"Visit site →","port.soon":"Launching soon →",
+    "proc.kicker":"03 — How we work",
+    "proc.title":'A <span class="serif-it gtext">clear</span> and direct process',
+    "proc.sub":"From first conversation to launch, no jargon or surprises along the way.",
+    "proc.s1.t":"We talk","proc.s1.d":"We understand your business, goals and who you talk to. No commitment.",
+    "proc.s2.t":"We design","proc.s2.d":"Visual proposal and structure. You approve before we move on.",
+    "proc.s3.t":"We build","proc.s3.d":"We develop with clean, optimized and scalable code.",
+    "proc.s4.t":"We launch","proc.s4.d":"We publish, train you and stay for optional maintenance.",
+    "price.kicker":"04 — Pricing",
+    "price.title":'<span class="serif-it gtext">Honest</span> pricing',
+    "price.sub":"Clear packages, all included. No fine print or hidden costs. Customizable to your needs.",
+    "price.popular":"MOST POPULAR","price.choose":"Choose plan",
+    "price.t1.rec":"+ €25/mo maintenance",
+    "price.t1.d":"For entrepreneurs and local businesses needing a solid and professional online presence.",
+    "price.t1.f1":"One-page responsive site","price.t1.f2":"WhatsApp button and forms","price.t1.f3":"Basic SEO + Google Business","price.t1.f4":"Domain and hosting included",
+    "price.t2.rec":"+ €50/mo with automations",
+    "price.t2.d":"For businesses that want to sell more and serve better without hiring anyone.",
+    "price.t2.f1":"Everything in Starter","price.t2.f2":"Integrated smart chatbot","price.t2.f3":"Email marketing (1 campaign/mo)","price.t2.f4":"Multi-page site + blog","price.t2.f5":"Monthly analytics and reports",
+    "price.t3.rec":"+ €90/mo all included",
+    "price.t3.d":"For companies that want to digitize processes and scale with AI.",
+    "price.t3.f1":"Everything in Pro","price.t3.f2":"AI automation (n8n/Make)","price.t3.f3":"Business dashboard","price.t3.f4":"CRM and forms integration","price.t3.f5":"Priority support",
+    "about.kicker":"05 — Who's behind",
+    "about.title":'Built by someone who has <span class="serif-it gtext">been there</span>.',
+    "about.p1":"10+ years in international IT — Spain, Canada and Ireland — designing cloud solutions, automation and technical architecture for global enterprises.",
+    "about.p2":"Today I apply that experience to help SMBs and entrepreneurs go digital without paying agency prices or waiting months.",
+    "about.quote":"I treat every project as if it were mine. Clean design, solid code and direct communication — no noise.",
+    "about.founder":"Founder, KanetTech",
+    "cta.title":'Shall we start your <span class="serif-it gtext">project</span>?',
+    "cta.sub":"Tell me what you need. I personally reply within 24h with a clear proposal.",
+    "cta.btn1":"Chat on WhatsApp →","cta.btn2":"Send email",
+    "foot.tagline":"Web design, automation and AI for SMBs. 100% remote, service in English and Spanish.",
+    "foot.serv":"Services","foot.comp":"Company","foot.contact":"Contact","foot.about":"About",
+    "foot.rights":"All rights reserved","foot.built":"Made with care from Madrid, Spain 🇪🇸",
+    "chat.name":"KanetTech Assistant","chat.status":"Online · Replies instantly","chat.ph":"Ask me anything...",
   }
-  return `No tengo esa info concreta, pero puedo ayudarte por <a href="${WA}?text=${encodeURIComponent(msg)}" target="_blank" style="color:#a78bfa">WhatsApp</a> ahora mismo. ¡Respondemos enseguida! 💬`;
-}
+};
 
-function addMsg(html, isUser = false) {
-  const messages = document.getElementById('chatMessages');
-  const div = document.createElement('div');
-  div.className = 'chat-msg';
-  if (isUser) div.style.cssText = 'background:rgba(124,58,237,0.2);align-self:flex-end;border-radius:12px 12px 2px 12px';
-  div.innerHTML = html;
-  messages.appendChild(div);
-  messages.scrollTop = messages.scrollHeight;
-}
+let LANG = (localStorage.getItem('kt-lang')||(navigator.language||'es').slice(0,2));
+if(!['es','en'].includes(LANG)) LANG='es';
 
-function sendChat() {
-  const input = document.getElementById('chatInput');
-  const msg = input.value.trim();
-  if (!msg) return;
-  addMsg(msg, true);
-  input.value = '';
-  setTimeout(() => addMsg(getReply(msg)), 500);
+function setLang(l){
+  LANG=l;
+  document.documentElement.lang=l;
+  localStorage.setItem('kt-lang',l);
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(I18N[l][k])el.innerHTML=I18N[l][k]});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.dataset.i18nPh;if(I18N[l][k])el.placeholder=I18N[l][k]});
+  document.getElementById('btnES').classList.toggle('active',l==='es');
+  document.getElementById('btnEN').classList.toggle('active',l==='en');
+  renderChips();
 }
+setLang(LANG);
 
-function sendWhatsApp() {
-  const name = document.querySelector('input[type=text]').value;
-  const msg = document.querySelector('textarea').value;
-  if (!msg) { alert('Por favor escribe tu mensaje'); return; }
-  const text = encodeURIComponent(`Hola, soy ${name || 'un cliente'}. ${msg}`);
-  window.open(`https://wa.me/34614062503?text=${text}`, '_blank');
+/* nav */
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+function closeMenu(){document.getElementById('navLinks').classList.remove('open')}
+
+/* chatbot */
+const chatW=document.getElementById('chatW');const chatFab=document.getElementById('chatFab');
+const chatB=document.getElementById('chatB');const chatI=document.getElementById('chatI');const chips=document.getElementById('chips');
+let started=false;
+
+const CHIPS={
+ es:['🌐 Servicios','💰 Precios','📂 Casos','⏱️ Tiempos','💬 Hablar con Edwin'],
+ en:['🌐 Services','💰 Pricing','📂 Cases','⏱️ Timeline','💬 Talk to Edwin']
+};
+function renderChips(){chips.innerHTML='';CHIPS[LANG].forEach(c=>{const b=document.createElement('button');b.className='chip';b.textContent=c;b.onclick=()=>askBot(c);chips.appendChild(b)})}
+
+function toggleChat(){
+  const open=chatW.classList.toggle('open');
+  chatFab.style.display=open?'none':'flex';
+  const w=document.getElementById('waFab');if(w)w.style.display=open?'none':'flex';
+  if(open&&!started){started=true;renderChips();
+    botSay(LANG==='es'
+      ? "¡Hola! 👋 Soy el asistente de <b>KanetTech</b>. Te puedo contar sobre servicios, precios, tiempos de entrega o conectarte con Edwin directamente. ¿Qué necesitas?"
+      : "Hi there! 👋 I'm the <b>KanetTech</b> assistant. I can tell you about services, pricing, timelines or connect you with Edwin directly. What can I help you with?");
+  }
+}
+function pushMsg(html,who){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=html;chatB.appendChild(d);chatB.scrollTop=chatB.scrollHeight}
+function botSay(h){pushMsg(h,'bot')}
+function userSay(t){pushMsg(t.replace(/</g,'&lt;'),'user')}
+function showTyping(){const t=document.createElement('div');t.className='typing';t.id='typing';t.innerHTML='<span></span><span></span><span></span>';chatB.appendChild(t);chatB.scrollTop=chatB.scrollHeight}
+function hideTyping(){const t=document.getElementById('typing');if(t)t.remove()}
+function askBot(text){userSay(text);showTyping();setTimeout(()=>{hideTyping();botSay(getReply(text))},650+Math.random()*350)}
+function sendMsg(){const v=chatI.value.trim();if(!v)return;chatI.value='';askBot(v)}
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const has=(t,...k)=>k.some(w=>t.includes(w));
+const WA="<a href='https://wa.me/34617322964?text=Hola%20KanetTech!' target='_blank'>WhatsApp</a>";
+
+function getReply(raw){
+  const t=norm(raw);const es=LANG==='es';
+
+  if(has(t,'hola','buenas','hello','hi ','hey','greeting')||t==='hi')
+    return es?"¡Hola! 😊 ¿Quieres saber de <b>servicios</b>, <b>precios</b>, o ver <b>casos</b>?":"Hi! 😊 Want to know about <b>services</b>, <b>pricing</b>, or see <b>cases</b>?";
+
+  if(has(t,'gracias','thank'))return es?"¡Con mucho gusto! ✨ Si quieres avanzar, escríbeme por "+WA+".":"You're welcome! ✨ When ready, ping me on "+WA+".";
+
+  // Web / sitio
+  if(has(t,'web','website','sitio','pagina','landing','site'))
+    return es?"🌐 Hacemos <b>webs profesionales</b>: landings, multi-página, e-commerce. Diseño 100% a medida, optimizado móvil, SEO incluido. Desde €500. ¿Vemos un ejemplo? Echa un ojo a <b>FAT TACO</b> y <b>Regal Space Solutions</b> en la sección Casos.":"🌐 We build <b>professional websites</b>: landings, multi-page, e-commerce. Fully custom design, mobile-optimized, SEO included. From €500. Want examples? Check <b>FAT TACO</b> and <b>Regal Space Solutions</b> in the Work section.";
+
+  if(has(t,'chatbot','bot','whatsapp','wasap','asistente','assistant'))
+    return es?"💬 Sí — integramos <b>chatbots inteligentes</b> en tu web y/o WhatsApp Business. Responden 24/7, capturan leads y agendan citas. Suele venir incluido en el plan Pro (€800).":"💬 Yes — we integrate <b>smart chatbots</b> into your site and/or WhatsApp Business. They reply 24/7, capture leads and book appointments. Usually included in the Pro plan (€800).";
+
+  if(has(t,'automat','n8n','make','zapier','flujo','workflow','ia ','ai '))
+    return es?"🤖 Automatización con <b>n8n, Make y Zapier</b> + IA. Conectamos tu CRM, formularios, email y planillas para que el trabajo se haga solo. Incluido en plan Premium (€1500) o como proyecto suelto desde €300.":"🤖 Automation with <b>n8n, Make and Zapier</b> + AI. We connect your CRM, forms, email and sheets so work runs itself. Included in Premium plan (€1500) or as a one-off from €300.";
+
+  if(has(t,'mantenimiento','mantenim','maint','support','soporte','update'))
+    return es?"🛠️ <b>Mantenimiento web</b> mensual: updates, backups, soporte. Desde €25/mes. No te dejamos colgado tras el lanzamiento.":"🛠️ Monthly <b>web maintenance</b>: updates, backups, support. From €25/mo. We don't leave you hanging after launch.";
+
+  if(has(t,'cloud','azure','aws','infraestruct','infrastr','migrac','migrat'))
+    return es?"☁️ <b>Asesoría Cloud</b> (Azure & AWS): migración, optimización de costes, gobierno. Mi experiencia: 10+ años en arquitectura cloud para empresas globales. Desde €60/h.":"☁️ <b>Cloud Advisory</b> (Azure & AWS): migration, cost optimization, governance. My background: 10+ years in cloud architecture for global enterprises. From €60/h.";
+
+  if(has(t,'365','workspace','microsoft','google','correo','email setup'))
+    return es?"📧 Setup completo de <b>Microsoft 365 o Google Workspace</b>: correo profesional, Drive, usuarios, permisos. Desde €300, con opción de mantenimiento.":"📧 Full setup of <b>Microsoft 365 or Google Workspace</b>: professional email, Drive, users, permissions. From €300, optional maintenance.";
+
+  // Servicios general
+  if(has(t,'servicio','service','que hac','what do you do','offer'))
+    return es?"🛠️ Servicios principales:<br>• 🌐 Diseño y desarrollo web<br>• 💬 Chatbots & WhatsApp<br>• 🤖 Automatización con IA<br>• ☁️ Asesoría Cloud (Azure/AWS)<br>• 📧 Microsoft 365 / Google Workspace<br>• 🛠️ Mantenimiento web<br><br>¿Sobre cuál quieres saber más?":"🛠️ Main services:<br>• 🌐 Web design & development<br>• 💬 Chatbots & WhatsApp<br>• 🤖 AI automation<br>• ☁️ Cloud advisory (Azure/AWS)<br>• 📧 Microsoft 365 / Google Workspace<br>• 🛠️ Web maintenance<br><br>Which one would you like to know more about?";
+
+  // Precios
+  if(has(t,'precio','price','cuanto','cost','how much','plan','pricing','tarifa','budget'))
+    return es?"💰 Tres planes claros:<br><br>• <b>Starter — €500</b> + €25/mes<br>Web one-page, WhatsApp, SEO básico.<br><br>• <b>Pro — €800</b> + €50/mes ⭐<br>Multi-página, chatbot, email marketing.<br><br>• <b>Premium — €1.500</b> + €90/mes<br>Todo lo del Pro + IA y dashboards.<br><br>También proyectos a medida.":"💰 Three clear plans:<br><br>• <b>Starter — €500</b> + €25/mo<br>One-page site, WhatsApp, basic SEO.<br><br>• <b>Pro — €800</b> + €50/mo ⭐<br>Multi-page, chatbot, email marketing.<br><br>• <b>Premium — €1,500</b> + €90/mo<br>Everything in Pro + AI and dashboards.<br><br>Custom projects also available.";
+
+  // Tiempos
+  if(has(t,'tiempo','time','timeline','cuanto tarda','how long','deliver','entrega'))
+    return es?"⏱️ Tiempos típicos:<br>• Web Starter: 1–2 semanas<br>• Web Pro: 2–3 semanas<br>• Premium con IA: 3–5 semanas<br><br>Si tienes urgencia, dímelo en "+WA+" y vemos.":"⏱️ Typical timelines:<br>• Starter site: 1–2 weeks<br>• Pro site: 2–3 weeks<br>• Premium with AI: 3–5 weeks<br><br>If urgent, ping me on "+WA+" and we'll figure it out.";
+
+  // Casos
+  if(has(t,'caso','case','portfolio','ejemplo','example','trabajo','work','demo'))
+    return es?"📂 Casos en producción:<br>• <b>Fat Taco</b> — taquería en Bucaramanga, Colombia 🇨🇴<br>• <b>Regal Space Solutions</b> — muebles a medida en Jacksonville, FL 🇺🇸<br><br>Échales un ojo en la sección Casos arriba.":"📂 Cases in production:<br>• <b>Fat Taco</b> — taqueria in Bucaramanga, Colombia 🇨🇴<br>• <b>Regal Space Solutions</b> — custom cabinetry in Jacksonville, FL 🇺🇸<br><br>Check them in the Work section above.";
+
+  // Contacto / Edwin
+  if(has(t,'contact','edwin','phone','call','telefono','llamar','meeting','reunion','hablar','talk'))
+    return es?"💬 La forma más rápida es "+WA+" o email <a href='mailto:edwinmram@gmail.com'>edwinmram@gmail.com</a>. Respondo en menos de 24h.":"💬 Fastest way is "+WA+" or email <a href='mailto:edwinmram@gmail.com'>edwinmram@gmail.com</a>. I reply within 24h.";
+
+  // Ubicación
+  if(has(t,'donde','where','located','ubicac','from','desde','remoto','remote'))
+    return es?"📍 Estoy basado en <b>Madrid, España</b>, pero trabajo <b>100% remoto</b> para clientes en España, LatAm y EEUU.":"📍 I'm based in <b>Madrid, Spain</b>, but work <b>100% remote</b> for clients in Spain, LatAm and the USA.";
+
+  // Idioma
+  if(has(t,'idioma','language','english','espanol','spanish','ingles'))
+    return es?"🌍 Trabajo en <b>español e inglés</b>. Tu web también puede ser bilingüe (como esta misma).":"🌍 I work in <b>English and Spanish</b>. Your website can be bilingual too (like this one).";
+
+  // Fallback
+  return es?"Buena pregunta 🤔 Puedo ayudarte con:<br>🌐 <b>Servicios</b><br>💰 <b>Precios</b><br>📂 <b>Casos</b><br>⏱️ <b>Tiempos</b><br>💬 <b>Contacto directo</b><br><br>O escríbeme por "+WA+".":"Good question 🤔 I can help with:<br>🌐 <b>Services</b><br>💰 <b>Pricing</b><br>📂 <b>Cases</b><br>⏱️ <b>Timelines</b><br>💬 <b>Direct contact</b><br><br>Or DM me on "+WA+".";
 }
 </script>
 </body>
